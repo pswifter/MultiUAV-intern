@@ -29,7 +29,7 @@ intern-work/
 ├── experiments/
 │   └── README.md
 └── daily-logs/
-    └── 2026-08-18.md
+    └── XXXX-XX-XX.md
 ```
 
 ## Daily Log Format
@@ -40,7 +40,7 @@ This is easier to review in GitHub because each day has a focused diff. If a day
 
 ## What To Commit
 
-- Markdown notes.
+- Markdown notes
 - Environment/setup notes.
 - Session exports used for experiments.
 - Result exports from the agent checker.
@@ -48,7 +48,7 @@ This is easier to review in GitHub because each day has a focused diff. If a day
 
 ## What Not To Commit
 
-- API keys or tokens.
-- `agent4drone/llm_settings.json`.
-- Large raw logs unless your mentor asks for them.
-- Temporary build/cache files.
+- API keys or tokens
+- `agent4drone/llm_settings.json`
+- Large raw logs
+- Temporary build/cache files
