@@ -44,10 +44,3 @@ or:
 ```bash
 python -m pip install shapely
 ```
-
-## Current Status
-
-- Server:
-- UI/controller:
-- Example sessions imported:
-- First task run:
