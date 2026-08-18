@@ -27,9 +27,7 @@ intern-work/
 │   ├── environment.md
 │   └── install_notes.md
 ├── experiments/
-│   ├── README.md
-│   └── sample-sessions/
-│       └── README.md
+│   └── README.md
 └── daily-logs/
     └── 2026-08-18.md
 ```
