@@ -1,3 +1,6 @@
 
 # Sample session starter files
 experiments/sample-sessions/
+
+# macOS Finder metadata
+.DS_Store
