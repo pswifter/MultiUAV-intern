@@ -1,0 +1,3418 @@
+{
+  "id": "58a9ad1d1cfcac2bc2ca11b5d6580cb3",
+  "export_timestamp": "2026-09-19T23:59:09.202848",
+  "tool": "AI Agent Auto-Check",
+  "version": "0.4.1",
+  "server_version": "0.4.1",
+  "statistics": {
+    "total_tasks": 11,
+    "passed_tasks_count": 11,
+    "failed_tasks_count": 0,
+    "total_failed_task_count": 0,
+    "task_pass_rate": 1.0,
+    "total_failed_task_rate": 0.0,
+    "average_check_pass_rate": 1.0,
+    "total_checks": 34,
+    "passed_checks": 34,
+    "failed_checks": 0,
+    "check_pass_rate": 1.0,
+    "agent_token_usage_tasks": 11,
+    "agent_prompt_tokens": 1920867,
+    "agent_completion_tokens": 38572,
+    "agent_total_tokens": 1959439,
+    "agent_llm_calls": 106,
+    "agent_mean_total_tokens_per_task": 178130.8
+  },
+  "results": [
+    {
+      "session_id": "08612667",
+      "session_name": "Area Search Easy 1",
+      "task_id": "f1fb82ff",
+      "task_name": "Target Area Complete Coverage and Photography Mission 1",
+      "status": "passed",
+      "timestamp": "2026-09-19T23:41:27.513096",
+      "error": null,
+      "statistics": {
+        "total_checks_apis": 3,
+        "passed_checks_apis": 3,
+        "failed_checks_apis": 0,
+        "pass_rate": 1.0
+      },
+      "details": [
+        {
+          "type": "group",
+          "logic": "AND",
+          "depth": 0,
+          "count": 2
+        },
+        {
+          "type": "group",
+          "logic": "OR",
+          "depth": 1,
+          "count": 2
+        },
+        {
+          "type": "leaf",
+          "endpoint": "/check/target_is_fully_searched",
+          "parameters": {
+            "target_id": "84e592eb",
+            "coverage_threshold": 0.99
+          },
+          "expect": true,
+          "actual": true,
+          "result": true,
+          "response": {
+            "result": true,
+            "value": 1.0,
+            "session_id": "08612667",
+            "target_id": "84e592eb",
+            "coverage_percentage": 100.0,
+            "coverage_threshold": 0.99
+          },
+          "depth": 2
+        },
+        {
+          "type": "leaf",
+          "endpoint": "/check/target_searched_area_percentage",
+          "parameters": {
+            "target_id": "84e592eb",
+            "expected_percentage": 0.99
+          },
+          "expect": true,
+          "actual": true,
+          "result": true,
+          "response": {
+            "result": true,
+            "value": 1.0,
+            "session_id": "08612667",
+            "target_id": "84e592eb",
+            "expected_percentage": 0.99,
+            "coverage_percentage": 100.0
+          },
+          "depth": 2
+        },
+        {
+          "type": "leaf",
+          "endpoint": "/check/drone_has_taken_photo",
+          "parameters": {
+            "drone_id": "19673f54",
+            "min_count": 3
+          },
+          "expect": true,
+          "actual": true,
+          "result": true,
+          "response": {
+            "result": true,
+            "value": 3,
+            "drone_id": "19673f54",
+            "min_count": 3,
+            "photo_ids": [
+              "7eef0b63",
+              "d8754ae4",
+              "90bdf083"
+            ],
+            "first_photo_time": 1789832420.291828,
+            "last_photo_time": 1789832450.1906052,
+            "positions": [
+              {
+                "x": 917.78,
+                "y": 439.37,
+                "z": 21.0
+              },
+              {
+                "x": 917.78,
+                "y": 699.37,
+                "z": 21.0
+              },
+              {
+                "x": 917.78,
+                "y": 699.37,
+                "z": 21.0
+              }
+            ]
+          },
+          "depth": 1
+        }
+      ],
+      "agent_latency_ms": 100478,
+      "agent_step_count": 16,
+      "agent_avg_step_latency_ms": 5239,
+      "agent_step_latency_source": "individual",
+      "agent_steps": [
+        {
+          "step": 1,
+          "name": "get_weather",
+          "explanation": "{ \"id\": \"e0fea91a\", \"name\": \"Area Search Easy 1 Environment\", \"weather\": \"cloudy\", \"temperature\": 21.08888874407956, \"humidity\": 56.0, \"pressure\": 1016.5, \"wind_speed\": 1.5114917832710308, \"wind_direction\": \"east\", \"visibility\": 14028.7, \"created_at\": 17756648...",
+          "latency_ms": 4878,
+          "latency_source": "individual",
+          "decision_latency_ms": 4871,
+          "tool_latency_ms": 7,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 2,
+          "name": "list_drones",
+          "explanation": "[ { \"id\": \"19673f54\", \"name\": \"Drone 1\", \"status\": \"idle\", \"position\": { \"x\": 917.78, \"y\": 439.37, \"z\": 0.0 }, \"battery_level\": 100.0, \"task_radius\": 20.0, \"perceived_radius\": 50.0 }, { \"id\": \"572d72a0\", \"name\": \"Drone 2\", \"status\": \"idle\", \"position\": { \"x\":...",
+          "latency_ms": 7,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 7,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 3,
+          "name": "sense_nearby_entities",
+          "explanation": "{ \"sensed_drone_ids\": [ \"19673f54\" ], \"per_drone\": { \"19673f54\": { \"drones\": [], \"targets\": [ { \"id\": \"84e592eb\", \"name\": \"Polygon Target 2\", \"type\": \"polygon\", \"position\": { \"x\": 788.0, \"y\": 569.0, \"z\": 0.0 }, \"description\": \"\", \"velocity\": null, \"radius\": 1....",
+          "action_input": "{\"drone_ids\": [\"19673f54\"], \"detail\": \"full\"}",
+          "latency_ms": 4907,
+          "latency_source": "individual",
+          "decision_latency_ms": 4898,
+          "tool_latency_ms": 9,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 4,
+          "name": "get_target_info",
+          "explanation": "{ \"id\": \"84e592eb\", \"name\": \"Polygon Target 2\", \"type\": \"polygon\", \"position\": { \"x\": 788.0, \"y\": 569.0, \"z\": 0.0 }, \"description\": \"\", \"radius\": 1.0, \"created_at\": 1775664850.266567, \"last_updated\": 1787379039.8147142, \"velocity\": null, \"moving_path\": null, \"...",
+          "action_input": "{\"target_id\": \"84e592eb\"}",
+          "latency_ms": 7708,
+          "latency_source": "individual",
+          "decision_latency_ms": 7673,
+          "tool_latency_ms": 35,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 5,
+          "name": "take_off",
+          "explanation": "{ \"command_id\": \"c2bca7ef\", \"drone_id\": \"19673f54\", \"command\": \"take_off\", \"status\": \"success\", \"message\": \"Drone taking off to altitude 21.0m (battery: -0.5%/-0mAh, remaining: 99.5%/98mAh)\", \"timestamp\": 1789832404.42491 }",
+          "action_input": "{\"drone_id\": \"19673f54\", \"altitude\": 21.0}",
+          "latency_ms": 35,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 35,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 6,
+          "name": "generate_coverage_path",
+          "explanation": "{ \"coverage_plan_id\": \"coverage-6d1108c0650f42cab11ea778412444ef\", \"target\": { \"id\": \"84e592eb\", \"name\": \"Polygon Target 2\", \"type\": \"polygon\" }, \"task_radius\": 20.0, \"point_spacing\": 20.0, \"drone_assignments\": [ { \"drone_id\": \"19673f54\", \"first_waypoint\": { \"...",
+          "action_input": "{\"target_id\": \"84e592eb\", \"drone_ids\": [\"19673f54\"]}",
+          "latency_ms": 5015,
+          "latency_source": "individual",
+          "decision_latency_ms": 4982,
+          "tool_latency_ms": 33,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 7,
+          "name": "take_photo",
+          "explanation": "{ \"command_id\": \"84c5e4e0\", \"drone_id\": \"19673f54\", \"command\": \"take_photo\", \"status\": \"success\", \"message\": \"Photo taken successfully. Photo ID: 7eef0b63 (battery: -0.3%/-0mAh, remaining: 99.2%/97mAh)\", \"timestamp\": 1789832420.291839 }",
+          "action_input": "{\"drone_id\": \"19673f54\"}",
+          "latency_ms": 10827,
+          "latency_source": "individual",
+          "decision_latency_ms": 10819,
+          "tool_latency_ms": 8,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 8,
+          "name": "move_along_path_and_sense",
+          "explanation": "{ \"drone_id\": \"19673f54\", \"move_result\": { \"status\": \"success\", \"message\": \"Drone completed path with 28 waypoints (total distance: 3900.00m, battery: -21.5%/-21mAh, remaining: 77.7%/76mAh) - Reached target(s): Polygon Target 2\", \"command_id\": \"d6c6151a\", \"dro...",
+          "action_input": "{\"drone_id\": \"19673f54\", \"coverage_plan_id\": \"coverage-6d1108c0650f42cab11ea778412444ef\", \"allow_partial_move\": false, \"detail\": \"summary\"}",
+          "latency_ms": 5403,
+          "latency_source": "individual",
+          "decision_latency_ms": 5315,
+          "tool_latency_ms": 88,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 9,
+          "name": "get_target_info",
+          "explanation": "{ \"id\": \"84e592eb\", \"name\": \"Polygon Target 2\", \"type\": \"polygon\", \"position\": { \"x\": 788.0, \"y\": 569.0, \"z\": 0.0 }, \"description\": \"\", \"radius\": 1.0, \"created_at\": 1775664850.266567, \"last_updated\": 1787379039.8147142, \"velocity\": null, \"moving_path\": null, \"...",
+          "action_input": "{\"target_id\": \"84e592eb\"}",
+          "latency_ms": 8305,
+          "latency_source": "individual",
+          "decision_latency_ms": 8271,
+          "tool_latency_ms": 34,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 10,
+          "name": "get_drone_status",
+          "explanation": "{ \"id\": \"19673f54\", \"name\": \"Drone 1\", \"model\": \"Model-X4\", \"status\": \"hovering\", \"position\": { \"x\": 917.78, \"y\": 699.37, \"z\": 21.0 }, \"heading\": 0.0, \"speed\": 0.0, \"battery_level\": 77.42747750000001, \"max_speed\": 25.0, \"max_altitude\": 494.0, \"battery_capacity...",
+          "action_input": "{\"drone_id\": \"19673f54\"}",
+          "latency_ms": 34,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 34,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 11,
+          "name": "take_photo",
+          "explanation": "{ \"command_id\": \"9e70ea60\", \"drone_id\": \"19673f54\", \"command\": \"take_photo\", \"status\": \"success\", \"message\": \"Photo taken successfully. Photo ID: d8754ae4 (battery: -0.3%/-0mAh, remaining: 77.4%/76mAh)\", \"timestamp\": 1789832433.998658 }",
+          "action_input": "{\"drone_id\": \"19673f54\"}",
+          "latency_ms": 34,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 34,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 12,
+          "name": "take_photo",
+          "explanation": "{ \"command_id\": \"a98ddb22\", \"drone_id\": \"19673f54\", \"command\": \"take_photo\", \"status\": \"success\", \"message\": \"Photo taken successfully. Photo ID: 90bdf083 (battery: -0.3%/-0mAh, remaining: 77.1%/76mAh)\", \"timestamp\": 1789832450.1906161 }",
+          "action_input": "{\"drone_id\": \"19673f54\"}",
+          "latency_ms": 16192,
+          "latency_source": "individual",
+          "decision_latency_ms": 16184,
+          "tool_latency_ms": 8,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 13,
+          "name": "generate_coverage_path",
+          "explanation": "{ \"coverage_plan_id\": \"coverage-353c75dd4c604d228426c917c1568964\", \"target\": { \"id\": \"84e592eb\", \"name\": \"Polygon Target 2\", \"type\": \"polygon\" }, \"task_radius\": 20.0, \"point_spacing\": 20.0, \"drone_assignments\": [ { \"drone_id\": \"19673f54\", \"first_waypoint\": { \"...",
+          "action_input": "{\"target_id\": \"84e592eb\", \"drone_ids\": [\"19673f54\"]}",
+          "latency_ms": 4365,
+          "latency_source": "individual",
+          "decision_latency_ms": 4329,
+          "tool_latency_ms": 36,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 14,
+          "name": "move_along_path_and_sense",
+          "explanation": "{ \"drone_id\": \"19673f54\", \"move_result\": { \"status\": \"success\", \"message\": \"Drone completed path with 28 waypoints (total distance: 3900.00m, battery: -21.5%/-21mAh, remaining: 55.7%/55mAh) - Reached target(s): Polygon Target 2\", \"command_id\": \"1fb9d691\", \"dro...",
+          "action_input": "{\"drone_id\": \"19673f54\", \"coverage_plan_id\": \"coverage-353c75dd4c604d228426c917c1568964\", \"allow_partial_move\": false, \"detail\": \"summary\"}",
+          "latency_ms": 6352,
+          "latency_source": "individual",
+          "decision_latency_ms": 6267,
+          "tool_latency_ms": 85,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 15,
+          "name": "get_drone_status",
+          "explanation": "{ \"id\": \"19673f54\", \"name\": \"Drone 1\", \"model\": \"Model-X4\", \"status\": \"hovering\", \"position\": { \"x\": 917.78, \"y\": 439.37, \"z\": 21.0 }, \"heading\": 180.0, \"speed\": 0.0, \"battery_level\": 55.654955000000015, \"max_speed\": 25.0, \"max_altitude\": 494.0, \"battery_capac...",
+          "action_input": "{\"drone_id\": \"19673f54\"}",
+          "latency_ms": 9761,
+          "latency_source": "individual",
+          "decision_latency_ms": 9754,
+          "tool_latency_ms": 7,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 16,
+          "name": "final_answer",
+          "explanation": "Mission complete. Here's the summary: --- ## 📋 Mission Summary: Drone 1 — Polygon Target 2 Coverage | Metric | Detail | |---|---| | **Drone** | Drone 1 (`19673f54`) | | **Target** | Polygon Target 2 (`84e592eb`) | | **Target Area** | 260m × 260m (657.78–917.78...",
+          "latency_ms": 1,
+          "latency_source": "individual",
+          "decision_latency_ms": 1,
+          "tool_latency_ms": 0,
+          "latency_scope": "final_response"
+        }
+      ],
+      "agent_job_id": "f006c0a1-010c-4ef0-927d-22bb14e15355",
+      "agent_token_usage": {
+        "prompt_tokens": 150900,
+        "completion_tokens": 3120,
+        "total_tokens": 154020,
+        "llm_calls": 12
+      }
+    },
+    {
+      "session_id": "e296fdcc",
+      "session_name": "Area Search Intermediate 4",
+      "task_id": "ef75f40c",
+      "task_name": "Target Area Complete Coverage and Photography Mission 1",
+      "status": "passed",
+      "timestamp": "2026-09-19T23:43:28.592105",
+      "error": null,
+      "statistics": {
+        "total_checks_apis": 3,
+        "passed_checks_apis": 3,
+        "failed_checks_apis": 0,
+        "pass_rate": 1.0
+      },
+      "details": [
+        {
+          "type": "group",
+          "logic": "AND",
+          "depth": 0,
+          "count": 2
+        },
+        {
+          "type": "group",
+          "logic": "OR",
+          "depth": 1,
+          "count": 2
+        },
+        {
+          "type": "leaf",
+          "endpoint": "/check/target_is_fully_searched",
+          "parameters": {
+            "target_id": "5e86348b",
+            "coverage_threshold": 0.99
+          },
+          "expect": true,
+          "actual": true,
+          "result": true,
+          "response": {
+            "result": true,
+            "value": 1.0,
+            "session_id": "e296fdcc",
+            "target_id": "5e86348b",
+            "coverage_percentage": 100.0,
+            "coverage_threshold": 0.99
+          },
+          "depth": 2
+        },
+        {
+          "type": "leaf",
+          "endpoint": "/check/target_searched_area_percentage",
+          "parameters": {
+            "target_id": "5e86348b",
+            "expected_percentage": 0.99
+          },
+          "expect": true,
+          "actual": true,
+          "result": true,
+          "response": {
+            "result": true,
+            "value": 1.0,
+            "session_id": "e296fdcc",
+            "target_id": "5e86348b",
+            "expected_percentage": 0.99,
+            "coverage_percentage": 100.0
+          },
+          "depth": 2
+        },
+        {
+          "type": "leaf",
+          "endpoint": "/check/drone_has_taken_photo",
+          "parameters": {
+            "drone_id": "d590d1c8",
+            "min_count": 3
+          },
+          "expect": true,
+          "actual": true,
+          "result": true,
+          "response": {
+            "result": true,
+            "value": 3,
+            "drone_id": "d590d1c8",
+            "min_count": 3,
+            "photo_ids": [
+              "a06ee13a",
+              "1591a5d3",
+              "1c23f1de"
+            ],
+            "first_photo_time": 1789832531.644688,
+            "last_photo_time": 1789832568.131999,
+            "positions": [
+              {
+                "x": 773.4419389458672,
+                "y": 685.0,
+                "z": 23.0
+              },
+              {
+                "x": 765.1184790840942,
+                "y": 485.0,
+                "z": 23.0
+              },
+              {
+                "x": 765.1184790840942,
+                "y": 485.0,
+                "z": 23.0
+              }
+            ]
+          },
+          "depth": 1
+        }
+      ],
+      "agent_latency_ms": 115394,
+      "agent_step_count": 17,
+      "agent_avg_step_latency_ms": 5789.8,
+      "agent_step_latency_source": "individual",
+      "agent_steps": [
+        {
+          "step": 1,
+          "name": "get_weather",
+          "explanation": "{ \"id\": \"5a2b5eec\", \"name\": \"Area Search Intermediate 4 Environment\", \"weather\": \"snow\", \"temperature\": 34.14977259329062, \"humidity\": 59.0, \"pressure\": 995.3, \"wind_speed\": 9.075848077941835, \"wind_direction\": \"east\", \"visibility\": 9165.0, \"created_at\": 17756...",
+          "latency_ms": 5944,
+          "latency_source": "individual",
+          "decision_latency_ms": 5935,
+          "tool_latency_ms": 9,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 2,
+          "name": "list_drones",
+          "explanation": "[ { \"id\": \"0f034b00\", \"name\": \"Drone 1\", \"status\": \"idle\", \"position\": { \"x\": 32.629999999999995, \"y\": 285.9, \"z\": 0.0 }, \"battery_level\": 100.0, \"task_radius\": 20.0, \"perceived_radius\": 50.0 }, { \"id\": \"3a01f549\", \"name\": \"Drone 2\", \"status\": \"idle\", \"positio...",
+          "latency_ms": 8,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 8,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 3,
+          "name": "sense_nearby_entities",
+          "explanation": "{ \"sensed_drone_ids\": [ \"d590d1c8\" ], \"per_drone\": { \"d590d1c8\": { \"drones\": [], \"targets\": [ { \"id\": \"5e86348b\", \"name\": \"Circle Target 2\", \"type\": \"circle\", \"position\": { \"x\": 698.0, \"y\": 588.0, \"z\": 0.0 }, \"description\": \"\", \"velocity\": null, \"radius\": 123....",
+          "action_input": "{\"drone_ids\": [\"d590d1c8\"], \"detail\": \"full\"}",
+          "latency_ms": 6678,
+          "latency_source": "individual",
+          "decision_latency_ms": 6670,
+          "tool_latency_ms": 8,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 4,
+          "name": "take_off",
+          "explanation": "{ \"command_id\": \"447f5e4b\", \"drone_id\": \"d590d1c8\", \"command\": \"take_off\", \"status\": \"success\", \"message\": \"Drone taking off to altitude 23.0m (battery: -0.5%/-0mAh, remaining: 99.5%/67mAh)\", \"timestamp\": 1789832514.802851 }",
+          "action_input": "{\"drone_id\": \"d590d1c8\", \"altitude\": 23.0}",
+          "latency_ms": 9141,
+          "latency_source": "individual",
+          "decision_latency_ms": 9081,
+          "tool_latency_ms": 60,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 5,
+          "name": "get_target_info",
+          "explanation": "{ \"id\": \"5e86348b\", \"name\": \"Circle Target 2\", \"type\": \"circle\", \"position\": { \"x\": 698.0, \"y\": 588.0, \"z\": 0.0 }, \"description\": \"\", \"radius\": 123, \"created_at\": 1775664888.729963, \"last_updated\": 1775664888.729963, \"velocity\": null, \"moving_path\": null, \"mov...",
+          "action_input": "{\"target_id\": \"5e86348b\"}",
+          "latency_ms": 60,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 60,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 6,
+          "name": "generate_coverage_path",
+          "explanation": "{ \"coverage_plan_id\": \"coverage-a07193374f39416cb2d864f27267ff71\", \"target\": { \"id\": \"5e86348b\", \"name\": \"Circle Target 2\", \"type\": \"circle\" }, \"task_radius\": 20.0, \"point_spacing\": 20.0, \"drone_assignments\": [ { \"drone_id\": \"d590d1c8\", \"first_waypoint\": { \"x\"...",
+          "action_input": "{\"target_id\": \"5e86348b\", \"drone_ids\": [\"d590d1c8\"]}",
+          "latency_ms": 5843,
+          "latency_source": "individual",
+          "decision_latency_ms": 5784,
+          "tool_latency_ms": 59,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 7,
+          "name": "take_photo",
+          "explanation": "{ \"command_id\": \"c5e9f6db\", \"drone_id\": \"d590d1c8\", \"command\": \"take_photo\", \"status\": \"success\", \"message\": \"Photo taken successfully. Photo ID: a06ee13a (battery: -0.3%/-0mAh, remaining: 99.2%/67mAh)\", \"timestamp\": 1789832531.6446998 }",
+          "action_input": "{\"drone_id\": \"d590d1c8\"}",
+          "latency_ms": 10956,
+          "latency_source": "individual",
+          "decision_latency_ms": 10941,
+          "tool_latency_ms": 15,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 8,
+          "name": "move_along_path",
+          "explanation": "{ \"command_id\": \"4d583a90\", \"drone_id\": \"d590d1c8\", \"command\": \"move_along_path\", \"status\": \"success\", \"message\": \"Drone completed path with 25 waypoints (total distance: 2670.34m, battery: -23.7%/-16mAh, remaining: 75.5%/51mAh) - Reached target(s): Circle Tar...",
+          "action_input": "{\"drone_id\": \"d590d1c8\", \"coverage_plan_id\": \"coverage-a07193374f39416cb2d864f27267ff71\", \"allow_partial_move\": false, \"detail\": \"full\"}",
+          "latency_ms": 5525,
+          "latency_source": "individual",
+          "decision_latency_ms": 5429,
+          "tool_latency_ms": 96,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 9,
+          "name": "get_drone_status",
+          "explanation": "{ \"id\": \"d590d1c8\", \"name\": \"Drone 5\", \"model\": \"Model-X1\", \"status\": \"hovering\", \"position\": { \"x\": 765.1184790840942, \"y\": 485.0, \"z\": 23.0 }, \"heading\": 182.38312038549643, \"speed\": 0.0, \"battery_level\": 75.22697079546951, \"max_speed\": 10.0, \"max_altitude\":...",
+          "action_input": "{\"drone_id\": \"d590d1c8\"}",
+          "latency_ms": 8185,
+          "latency_source": "individual",
+          "decision_latency_ms": 8173,
+          "tool_latency_ms": 12,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 10,
+          "name": "take_photo",
+          "explanation": "{ \"command_id\": \"0746e9e3\", \"drone_id\": \"d590d1c8\", \"command\": \"take_photo\", \"status\": \"success\", \"message\": \"Photo taken successfully. Photo ID: 1591a5d3 (battery: -0.3%/-0mAh, remaining: 75.2%/51mAh)\", \"timestamp\": 1789832545.3569531 }",
+          "action_input": "{\"drone_id\": \"d590d1c8\"}",
+          "latency_ms": 11,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 11,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 11,
+          "name": "get_target_info",
+          "explanation": "{ \"id\": \"5e86348b\", \"name\": \"Circle Target 2\", \"type\": \"circle\", \"position\": { \"x\": 698.0, \"y\": 588.0, \"z\": 0.0 }, \"description\": \"\", \"radius\": 123, \"created_at\": 1775664888.729963, \"last_updated\": 1775664888.729963, \"velocity\": null, \"moving_path\": null, \"mov...",
+          "action_input": "{\"target_id\": \"5e86348b\"}",
+          "latency_ms": 6860,
+          "latency_source": "individual",
+          "decision_latency_ms": 6799,
+          "tool_latency_ms": 61,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 12,
+          "name": "sense_nearby_entities",
+          "explanation": "{ \"sensed_drone_ids\": [ \"d590d1c8\" ], \"per_drone\": { \"d590d1c8\": { \"drones\": [], \"targets\": [ { \"id\": \"5e86348b\", \"name\": \"Circle Target 2\", \"type\": \"circle\", \"position\": { \"x\": 698.0, \"y\": 588.0, \"z\": 0.0 }, \"description\": \"\", \"velocity\": null, \"radius\": 123....",
+          "action_input": "{\"drone_ids\": [\"d590d1c8\"], \"detail\": \"full\"}",
+          "latency_ms": 62,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 62,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 13,
+          "name": "take_photo",
+          "explanation": "{ \"command_id\": \"75124349\", \"drone_id\": \"d590d1c8\", \"command\": \"take_photo\", \"status\": \"success\", \"message\": \"Photo taken successfully. Photo ID: 1c23f1de (battery: -0.3%/-0mAh, remaining: 74.9%/50mAh)\", \"timestamp\": 1789832568.1320052 }",
+          "action_input": "{\"drone_id\": \"d590d1c8\"}",
+          "latency_ms": 15914,
+          "latency_source": "individual",
+          "decision_latency_ms": 15851,
+          "tool_latency_ms": 63,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 14,
+          "name": "generate_coverage_path",
+          "explanation": "{ \"coverage_plan_id\": \"coverage-78cf78f96e1940ceb126cafe728285cf\", \"target\": { \"id\": \"5e86348b\", \"name\": \"Circle Target 2\", \"type\": \"circle\" }, \"task_radius\": 20.0, \"point_spacing\": 20.0, \"drone_assignments\": [ { \"drone_id\": \"d590d1c8\", \"first_waypoint\": { \"x\"...",
+          "action_input": "{\"target_id\": \"5e86348b\", \"drone_ids\": [\"d590d1c8\"]}",
+          "latency_ms": 66,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 66,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 15,
+          "name": "move_along_path",
+          "explanation": "{ \"command_id\": \"ebe4936d\", \"drone_id\": \"d590d1c8\", \"command\": \"move_along_path\", \"status\": \"success\", \"message\": \"Drone completed path with 24 waypoints (total distance: 2660.08m, battery: -23.6%/-16mAh, remaining: 51.3%/35mAh) - Reached target(s): Circle Tar...",
+          "action_input": "{\"drone_id\": \"d590d1c8\", \"coverage_plan_id\": \"coverage-78cf78f96e1940ceb126cafe728285cf\", \"allow_partial_move\": false, \"detail\": \"full\"}",
+          "latency_ms": 8861,
+          "latency_source": "individual",
+          "decision_latency_ms": 8768,
+          "tool_latency_ms": 93,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 16,
+          "name": "land",
+          "explanation": "{ \"command_id\": \"dcb32a19\", \"drone_id\": \"d590d1c8\", \"command\": \"land\", \"status\": \"success\", \"message\": \"Drone landed successfully (battery: -0.0%/-0mAh, remaining: 51.3%/35mAh)\", \"timestamp\": 1789832591.306526 }",
+          "action_input": "{\"drone_id\": \"d590d1c8\"}",
+          "latency_ms": 14312,
+          "latency_source": "individual",
+          "decision_latency_ms": 14300,
+          "tool_latency_ms": 12,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 17,
+          "name": "final_answer",
+          "explanation": "## Mission Summary — Drone 5: Circle Target 2 Coverage ✅ | Metric | Detail | |---|---| | **Drone** | Drone 5 (`d590d1c8`) | | **Target** | Circle Target 2 — center (698, 588), radius 123m | | **Altitude** | 23m | | **Pass 1** | 25 waypoints, 2,670m (serpentine...",
+          "latency_ms": 0,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 0,
+          "latency_scope": "final_response"
+        }
+      ],
+      "agent_job_id": "7f08dca9-cd37-4cc6-8854-a2a9895a71ac",
+      "agent_token_usage": {
+        "prompt_tokens": 149624,
+        "completion_tokens": 3381,
+        "total_tokens": 153005,
+        "llm_calls": 12
+      }
+    },
+    {
+      "session_id": "e296fdcc",
+      "session_name": "Area Search Intermediate 4",
+      "task_id": "7a4a0a17",
+      "task_name": "Complete Area Coverage Search",
+      "status": "passed",
+      "timestamp": "2026-09-19T23:44:24.524497",
+      "error": null,
+      "statistics": {
+        "total_checks_apis": 2,
+        "passed_checks_apis": 2,
+        "failed_checks_apis": 0,
+        "pass_rate": 1.0
+      },
+      "details": [
+        {
+          "type": "group",
+          "logic": "AND",
+          "depth": 0,
+          "count": 2
+        },
+        {
+          "type": "leaf",
+          "endpoint": "/check/target_is_reached_by_drone",
+          "parameters": {
+            "target_id": "38da69a4",
+            "drone_id": "beea6f66"
+          },
+          "expect": true,
+          "actual": true,
+          "result": true,
+          "response": {
+            "result": true,
+            "value": 130,
+            "session_id": "e296fdcc",
+            "target_id": "38da69a4",
+            "drone_id": "beea6f66",
+            "since_timestamp": null
+          },
+          "depth": 1
+        },
+        {
+          "type": "leaf",
+          "endpoint": "/check/target_is_fully_searched",
+          "parameters": {
+            "target_id": "38da69a4",
+            "coverage_threshold": 0.95
+          },
+          "expect": true,
+          "actual": true,
+          "result": true,
+          "response": {
+            "result": true,
+            "value": 1.0,
+            "session_id": "e296fdcc",
+            "target_id": "38da69a4",
+            "coverage_percentage": 100.0,
+            "coverage_threshold": 0.95
+          },
+          "depth": 1
+        }
+      ],
+      "agent_latency_ms": 50234,
+      "agent_step_count": 8,
+      "agent_avg_step_latency_ms": 4398.4,
+      "agent_step_latency_source": "individual",
+      "agent_steps": [
+        {
+          "step": 1,
+          "name": "get_weather",
+          "explanation": "{ \"id\": \"5a2b5eec\", \"name\": \"Area Search Intermediate 4 Environment\", \"weather\": \"snow\", \"temperature\": 33.883182562589944, \"humidity\": 59.0, \"pressure\": 995.3, \"wind_speed\": 8.457201259602783, \"wind_direction\": \"east\", \"visibility\": 9165.0, \"created_at\": 1775...",
+          "latency_ms": 6901,
+          "latency_source": "individual",
+          "decision_latency_ms": 6889,
+          "tool_latency_ms": 12,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 2,
+          "name": "list_drones",
+          "explanation": "[ { \"id\": \"0f034b00\", \"name\": \"Drone 1\", \"status\": \"idle\", \"position\": { \"x\": 32.629999999999995, \"y\": 285.9, \"z\": 0.0 }, \"battery_level\": 100.0, \"task_radius\": 20.0, \"perceived_radius\": 50.0 }, { \"id\": \"3a01f549\", \"name\": \"Drone 2\", \"status\": \"idle\", \"positio...",
+          "latency_ms": 12,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 12,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 3,
+          "name": "sense_nearby_entities",
+          "explanation": "{ \"sensed_drone_ids\": [ \"beea6f66\" ], \"per_drone\": { \"beea6f66\": { \"drones\": [], \"targets\": [ { \"id\": \"38da69a4\", \"name\": \"Circle Target 1\", \"type\": \"circle\", \"position\": { \"x\": 764.0, \"y\": 238.0, \"z\": 0.0 }, \"description\": \"\", \"velocity\": null, \"radius\": 103....",
+          "action_input": "{\"drone_ids\": [\"beea6f66\"], \"detail\": \"full\"}",
+          "latency_ms": 6962,
+          "latency_source": "individual",
+          "decision_latency_ms": 6951,
+          "tool_latency_ms": 11,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 4,
+          "name": "get_target_info",
+          "explanation": "{ \"id\": \"38da69a4\", \"name\": \"Circle Target 1\", \"type\": \"circle\", \"position\": { \"x\": 764.0, \"y\": 238.0, \"z\": 0.0 }, \"description\": \"\", \"radius\": 103, \"created_at\": 1775664888.729911, \"last_updated\": 1787379735.375437, \"velocity\": null, \"moving_path\": null, \"mov...",
+          "action_input": "{\"target_id\": \"38da69a4\"}",
+          "latency_ms": 8696,
+          "latency_source": "individual",
+          "decision_latency_ms": 8635,
+          "tool_latency_ms": 61,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 5,
+          "name": "take_off",
+          "explanation": "{ \"command_id\": \"71941581\", \"drone_id\": \"beea6f66\", \"command\": \"take_off\", \"status\": \"success\", \"message\": \"Drone taking off to altitude 21.0m (battery: -0.5%/-0mAh, remaining: 99.5%/86mAh)\", \"timestamp\": 1789832636.701517 }",
+          "action_input": "{\"drone_id\": \"beea6f66\", \"altitude\": 21.0}",
+          "latency_ms": 61,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 61,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 6,
+          "name": "generate_coverage_path",
+          "explanation": "{ \"coverage_plan_id\": \"coverage-3518b68998b74ad485aed248e90766b1\", \"target\": { \"id\": \"38da69a4\", \"name\": \"Circle Target 1\", \"type\": \"circle\" }, \"task_radius\": 20.0, \"point_spacing\": 20.0, \"drone_assignments\": [ { \"drone_id\": \"beea6f66\", \"first_waypoint\": { \"x\"...",
+          "action_input": "{\"target_id\": \"38da69a4\", \"drone_ids\": [\"beea6f66\"]}",
+          "latency_ms": 5952,
+          "latency_source": "individual",
+          "decision_latency_ms": 5890,
+          "tool_latency_ms": 62,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 7,
+          "name": "move_along_path",
+          "explanation": "{ \"status\": \"success\", \"message\": \"Drone completed path with 20 waypoints (total distance: 1894.89m, battery: -14.8%/-13mAh, remaining: 84.7%/74mAh) - Reached target(s): Circle Target 1\", \"command_id\": \"e9071ee9\", \"drone_id\": \"beea6f66\", \"command\": \"move_along...",
+          "action_input": "{\"drone_id\": \"beea6f66\", \"coverage_plan_id\": \"coverage-3518b68998b74ad485aed248e90766b1\", \"allow_partial_move\": false, \"detail\": \"summary\"}",
+          "latency_ms": 6603,
+          "latency_source": "individual",
+          "decision_latency_ms": 6536,
+          "tool_latency_ms": 67,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 8,
+          "name": "final_answer",
+          "explanation": "All 20 waypoints completed successfully — the full coverage pattern executed without any missed points. Here's the mission summary: **Mission Results:** - **Drone:** Drone 3 (`beea6f66`) - **Target:** Circle Target 1 at (764, 238), radius 103m - **Altitude:**...",
+          "latency_ms": 0,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 0,
+          "latency_scope": "final_response"
+        }
+      ],
+      "agent_job_id": "62016ab4-6208-4b2d-bbcd-6c46aba78100",
+      "agent_token_usage": {
+        "prompt_tokens": 63167,
+        "completion_tokens": 1459,
+        "total_tokens": 64626,
+        "llm_calls": 6
+      }
+    },
+    {
+      "session_id": "e296fdcc",
+      "session_name": "Area Search Intermediate 4",
+      "task_id": "e8029197",
+      "task_name": "Any Drone Two-Target Area Coverage Search",
+      "status": "passed",
+      "timestamp": "2026-09-19T23:48:11.364830",
+      "error": null,
+      "statistics": {
+        "total_checks_apis": 4,
+        "passed_checks_apis": 4,
+        "failed_checks_apis": 0,
+        "pass_rate": 1.0
+      },
+      "details": [
+        {
+          "type": "group",
+          "logic": "AND",
+          "depth": 0,
+          "count": 4
+        },
+        {
+          "type": "leaf",
+          "endpoint": "/check/target_is_reached",
+          "parameters": {
+            "target_id": "34f19ce5"
+          },
+          "expect": true,
+          "actual": true,
+          "result": true,
+          "response": {
+            "result": true,
+            "value": 3,
+            "session_id": "e296fdcc",
+            "target_id": "34f19ce5",
+            "reached_by": [
+              "beea6f66",
+              "3a01f549",
+              "f32e68d7"
+            ],
+            "since_timestamp": null
+          },
+          "depth": 1
+        },
+        {
+          "type": "leaf",
+          "endpoint": "/check/target_is_reached",
+          "parameters": {
+            "target_id": "db0bc200"
+          },
+          "expect": true,
+          "actual": true,
+          "result": true,
+          "response": {
+            "result": true,
+            "value": 2,
+            "session_id": "e296fdcc",
+            "target_id": "db0bc200",
+            "reached_by": [
+              "f32e68d7",
+              "0f034b00"
+            ],
+            "since_timestamp": null
+          },
+          "depth": 1
+        },
+        {
+          "type": "leaf",
+          "endpoint": "/check/target_is_fully_searched",
+          "parameters": {
+            "target_id": "34f19ce5",
+            "coverage_threshold": 0.95
+          },
+          "expect": true,
+          "actual": true,
+          "result": true,
+          "response": {
+            "result": true,
+            "value": 1.0,
+            "session_id": "e296fdcc",
+            "target_id": "34f19ce5",
+            "coverage_percentage": 100.0,
+            "coverage_threshold": 0.95
+          },
+          "depth": 1
+        },
+        {
+          "type": "leaf",
+          "endpoint": "/check/target_is_fully_searched",
+          "parameters": {
+            "target_id": "db0bc200",
+            "coverage_threshold": 0.95
+          },
+          "expect": true,
+          "actual": true,
+          "result": true,
+          "response": {
+            "result": true,
+            "value": 1.0,
+            "session_id": "e296fdcc",
+            "target_id": "db0bc200",
+            "coverage_percentage": 100.0,
+            "coverage_threshold": 0.95
+          },
+          "depth": 1
+        }
+      ],
+      "agent_latency_ms": 221074,
+      "agent_step_count": 36,
+      "agent_avg_step_latency_ms": 5639.4,
+      "agent_step_latency_source": "individual",
+      "agent_steps": [
+        {
+          "step": 1,
+          "name": "list_drones",
+          "explanation": "[ { \"id\": \"0f034b00\", \"name\": \"Drone 1\", \"status\": \"idle\", \"position\": { \"x\": 32.629999999999995, \"y\": 285.9, \"z\": 0.0 }, \"battery_level\": 100.0, \"task_radius\": 20.0, \"perceived_radius\": 50.0 }, { \"id\": \"3a01f549\", \"name\": \"Drone 2\", \"status\": \"idle\", \"positio...",
+          "latency_ms": 6298,
+          "latency_source": "individual",
+          "decision_latency_ms": 6284,
+          "tool_latency_ms": 14,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 2,
+          "name": "get_weather",
+          "explanation": "{ \"id\": \"5a2b5eec\", \"name\": \"Area Search Intermediate 4 Environment\", \"weather\": \"snow\", \"temperature\": 35.23665980771847, \"humidity\": 59.0, \"pressure\": 995.3, \"wind_speed\": 7.489955395161069, \"wind_direction\": \"northwest\", \"visibility\": 9165.0, \"created_at\":...",
+          "latency_ms": 15,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 15,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 3,
+          "name": "sense_nearby_entities",
+          "explanation": "{ \"sensed_drone_ids\": [ \"0f034b00\", \"3a01f549\", \"beea6f66\", \"f32e68d7\", \"d590d1c8\" ], \"per_drone\": { \"0f034b00\": { \"drones\": [], \"targets\": [ { \"id\": \"db0bc200\", \"name\": \"Polygon Target 3\", \"type\": \"polygon\", \"position\": { \"x\": 96.0, \"y\": 349.0, \"z\": 0.0 }, \"d...",
+          "action_input": "{\"detail\": \"full\"}",
+          "latency_ms": 33,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 33,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 4,
+          "name": "take_off",
+          "explanation": "{ \"command_id\": \"d9800990\", \"drone_id\": \"0f034b00\", \"command\": \"take_off\", \"status\": \"success\", \"message\": \"Drone taking off to altitude 15.0m (battery: -0.5%/-0mAh, remaining: 99.5%/74mAh)\", \"timestamp\": 1789832708.8494809 }",
+          "action_input": "{\"drone_id\": \"0f034b00\", \"altitude\": 15.0}",
+          "latency_ms": 32390,
+          "latency_source": "individual",
+          "decision_latency_ms": 32375,
+          "tool_latency_ms": 15,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 5,
+          "name": "get_target_info",
+          "explanation": "{ \"id\": \"34f19ce5\", \"name\": \"Polygon Target 2\", \"type\": \"polygon\", \"position\": { \"x\": 299.0, \"y\": 124.0, \"z\": 0.0 }, \"description\": \"\", \"radius\": 1.0, \"created_at\": 1775664888.7299259, \"last_updated\": 1787379608.0465438, \"velocity\": null, \"moving_path\": null,...",
+          "action_input": "{\"target_id\": \"34f19ce5\"}",
+          "latency_ms": 87,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 87,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 6,
+          "name": "take_off",
+          "explanation": "{ \"command_id\": \"924f1344\", \"drone_id\": \"3a01f549\", \"command\": \"take_off\", \"status\": \"success\", \"message\": \"Drone taking off to altitude 15.0m (battery: -0.5%/-0mAh, remaining: 99.5%/65mAh)\", \"timestamp\": 1789832708.854147 }",
+          "action_input": "{\"drone_id\": \"3a01f549\", \"altitude\": 15.0}",
+          "latency_ms": 87,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 87,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 7,
+          "name": "get_target_info",
+          "explanation": "{ \"id\": \"db0bc200\", \"name\": \"Polygon Target 3\", \"type\": \"polygon\", \"position\": { \"x\": 96.0, \"y\": 349.0, \"z\": 0.0 }, \"description\": \"\", \"radius\": 1.0, \"created_at\": 1775664888.729975, \"last_updated\": 1775664888.729975, \"velocity\": null, \"moving_path\": null, \"mo...",
+          "action_input": "{\"target_id\": \"db0bc200\"}",
+          "latency_ms": 87,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 87,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 8,
+          "name": "take_off",
+          "explanation": "{ \"command_id\": \"cc92903e\", \"drone_id\": \"f32e68d7\", \"command\": \"take_off\", \"status\": \"success\", \"message\": \"Drone taking off to altitude 15.0m (battery: -0.5%/-0mAh, remaining: 99.5%/71mAh)\", \"timestamp\": 1789832722.978642 }",
+          "action_input": "{\"drone_id\": \"f32e68d7\", \"altitude\": 15.0}",
+          "latency_ms": 14058,
+          "latency_source": "individual",
+          "decision_latency_ms": 14046,
+          "tool_latency_ms": 12,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 9,
+          "name": "take_off",
+          "explanation": "{ \"command_id\": \"e23776ae\", \"drone_id\": \"beea6f66\", \"command\": \"take_off\", \"status\": \"success\", \"message\": \"Drone taking off to altitude 15.0m (battery: -0.5%/-0mAh, remaining: 99.5%/86mAh)\", \"timestamp\": 1789832722.980063 }",
+          "action_input": "{\"drone_id\": \"beea6f66\", \"altitude\": 15.0}",
+          "latency_ms": 12,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 12,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 10,
+          "name": "generate_coverage_path",
+          "explanation": "{ \"coverage_plan_id\": \"coverage-65f3a8d7dbc94ec0bddb80c192ef07e1\", \"target\": { \"id\": \"34f19ce5\", \"name\": \"Polygon Target 2\", \"type\": \"polygon\" }, \"task_radius\": 20.0, \"point_spacing\": 20.0, \"drone_assignments\": [ { \"drone_id\": \"3a01f549\", \"first_waypoint\": { \"...",
+          "action_input": "{\"target_id\": \"34f19ce5\", \"drone_ids\": [\"3a01f549\", \"beea6f66\"]}",
+          "latency_ms": 7239,
+          "latency_source": "individual",
+          "decision_latency_ms": 7152,
+          "tool_latency_ms": 87,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 11,
+          "name": "generate_coverage_path",
+          "explanation": "{ \"coverage_plan_id\": \"coverage-e5a1de95c3d64e94bc738219185dbb48\", \"target\": { \"id\": \"db0bc200\", \"name\": \"Polygon Target 3\", \"type\": \"polygon\" }, \"task_radius\": 20.0, \"point_spacing\": 20.0, \"drone_assignments\": [ { \"drone_id\": \"0f034b00\", \"first_waypoint\": { \"...",
+          "action_input": "{\"target_id\": \"db0bc200\", \"drone_ids\": [\"0f034b00\", \"f32e68d7\"]}",
+          "latency_ms": 87,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 87,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 12,
+          "name": "move_along_path",
+          "explanation": "{ \"status\": \"error\", \"message\": \"Path to waypoint 2 blocked: Flight path intersects with ObstacleType.POLYGON obstacle 'Polygon Obstacle 2'\", \"command_id\": \"6591fd2e\", \"drone_id\": \"beea6f66\", \"command\": \"move_along_path\" }",
+          "action_input": "{\"drone_id\": \"beea6f66\", \"coverage_plan_id\": \"coverage-65f3a8d7dbc94ec0bddb80c192ef07e1\", \"allow_partial_move\": false}",
+          "latency_ms": 12709,
+          "latency_source": "individual",
+          "decision_latency_ms": 12601,
+          "tool_latency_ms": 108,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 13,
+          "name": "move_along_path",
+          "explanation": "{ \"status\": \"success\", \"message\": \"Drone completed path with 8 waypoints (total distance: 510.00m, battery: -4.5%/-3mAh, remaining: 95.0%/62mAh) - Reached target(s): Polygon Target 2\", \"command_id\": \"1388cb05\", \"drone_id\": \"3a01f549\", \"command\": \"move_along_pa...",
+          "action_input": "{\"drone_id\": \"3a01f549\", \"coverage_plan_id\": \"coverage-65f3a8d7dbc94ec0bddb80c192ef07e1\", \"allow_partial_move\": false}",
+          "latency_ms": 108,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 108,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 14,
+          "name": "move_along_path",
+          "explanation": "{ \"status\": \"success\", \"message\": \"Drone completed path with 8 waypoints (total distance: 564.00m, battery: -5.0%/-4mAh, remaining: 94.5%/71mAh) - Reached target(s): Polygon Target 3, Polygon Target 1\", \"command_id\": \"851d61e9\", \"drone_id\": \"0f034b00\", \"comman...",
+          "action_input": "{\"drone_id\": \"0f034b00\", \"coverage_plan_id\": \"coverage-e5a1de95c3d64e94bc738219185dbb48\", \"allow_partial_move\": false}",
+          "latency_ms": 109,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 109,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 15,
+          "name": "move_along_path",
+          "explanation": "{ \"status\": \"success\", \"message\": \"Drone completed path with 9 waypoints (total distance: 954.47m, battery: -8.5%/-6mAh, remaining: 91.0%/65mAh) - Reached target(s): Polygon Target 1, Polygon Target 3\", \"command_id\": \"1f4dd28e\", \"drone_id\": \"f32e68d7\", \"comman...",
+          "action_input": "{\"drone_id\": \"f32e68d7\", \"coverage_plan_id\": \"coverage-e5a1de95c3d64e94bc738219185dbb48\", \"allow_partial_move\": false}",
+          "latency_ms": 109,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 109,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 16,
+          "name": "get_nearby_entities",
+          "explanation": "{ \"drone_id\": null, \"counts\": { \"targets\": 1, \"obstacles\": 2, \"drones\": 0 }, \"targets\": [ { \"id\": \"38da69a4\", \"name\": \"Circle Target 1\", \"type\": \"circle\", \"position\": { \"x\": 764.0, \"y\": 238.0, \"z\": 0.0 }, \"radius\": 103.0 } ], \"obstacles\": [ { \"id\": \"32274b4e\",...",
+          "action_input": "{\"drone_id\": \"beea6f66\"}",
+          "latency_ms": 13114,
+          "latency_source": "individual",
+          "decision_latency_ms": 13039,
+          "tool_latency_ms": 75,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 17,
+          "name": "get_target_info",
+          "explanation": "{ \"id\": \"34f19ce5\", \"name\": \"Polygon Target 2\", \"type\": \"polygon\", \"position\": { \"x\": 299.0, \"y\": 124.0, \"z\": 0.0 }, \"description\": \"\", \"radius\": 1.0, \"created_at\": 1775664888.7299259, \"last_updated\": 1787379608.0465438, \"velocity\": null, \"moving_path\": null,...",
+          "action_input": "{\"target_id\": \"34f19ce5\"}",
+          "latency_ms": 75,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 75,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 18,
+          "name": "get_target_info",
+          "explanation": "{ \"id\": \"db0bc200\", \"name\": \"Polygon Target 3\", \"type\": \"polygon\", \"position\": { \"x\": 96.0, \"y\": 349.0, \"z\": 0.0 }, \"description\": \"\", \"radius\": 1.0, \"created_at\": 1775664888.729975, \"last_updated\": 1775664888.729975, \"velocity\": null, \"moving_path\": null, \"mo...",
+          "action_input": "{\"target_id\": \"db0bc200\"}",
+          "latency_ms": 75,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 75,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 19,
+          "name": "sense_nearby_entities",
+          "explanation": "{ \"sensed_drone_ids\": [ \"3a01f549\", \"0f034b00\", \"f32e68d7\" ], \"per_drone\": { \"3a01f549\": { \"drone_id\": null, \"counts\": { \"targets\": 1, \"obstacles\": 0, \"drones\": 0 }, \"targets\": [ { \"id\": \"34f19ce5\", \"name\": \"Polygon Target 2\", \"type\": \"polygon\", \"position\": {...",
+          "action_input": "{\"drone_ids\": [\"3a01f549\", \"0f034b00\", \"f32e68d7\"], \"detail\": \"summary\"}",
+          "latency_ms": 16821,
+          "latency_source": "individual",
+          "decision_latency_ms": 16790,
+          "tool_latency_ms": 31,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 20,
+          "name": "navigate_to_and_sense",
+          "explanation": "{ \"drone_id\": \"beea6f66\", \"navigation_result\": { \"success\": false, \"message\": \"Direct movement did not reach the requested coordinate\", \"drone_id\": \"beea6f66\", \"final_position\": { \"x\": 703.2147907456568, \"y\": 155.0, \"z\": 15.0 }, \"distance_remaining\": 405.40177...",
+          "action_input": "{\"drone_id\": \"beea6f66\", \"x\": 299.0, \"y\": 124.0, \"z\": 15.0, \"detail\": \"summary\"}",
+          "latency_ms": 24,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 24,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 21,
+          "name": "navigate_to_and_sense",
+          "explanation": "{ \"drone_id\": \"beea6f66\", \"navigation_result\": { \"success\": false, \"message\": \"Direct movement did not reach the requested coordinate\", \"drone_id\": \"beea6f66\", \"final_position\": { \"x\": 703.2147907456568, \"y\": 155.0, \"z\": 15.0 }, \"distance_remaining\": 249.64224...",
+          "action_input": "{\"drone_id\": \"beea6f66\", \"x\": 500.0, \"y\": 300.0, \"z\": 15.0, \"detail\": \"summary\"}",
+          "latency_ms": 13410,
+          "latency_source": "individual",
+          "decision_latency_ms": 13385,
+          "tool_latency_ms": 25,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 22,
+          "name": "move_towards_and_sense",
+          "explanation": "{ \"drone_id\": \"beea6f66\", \"move_result\": { \"status\": \"success\", \"message\": \"Drone moved 60.00m to position (703.21, 215.00, 15.00), heading: 0.0\\u00b0 (battery: -0.5%/-0mAh, remaining: 99.0%/86mAh) - Reached target(s): Circle Target 1\", \"command_id\": \"a7910fba...",
+          "action_input": "{\"drone_id\": \"beea6f66\", \"distance\": 60.0, \"heading\": 0.0, \"detail\": \"summary\"}",
+          "latency_ms": 12189,
+          "latency_source": "individual",
+          "decision_latency_ms": 12159,
+          "tool_latency_ms": 30,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 23,
+          "name": "navigate_to_and_sense",
+          "explanation": "{ \"drone_id\": \"beea6f66\", \"navigation_result\": { \"success\": false, \"message\": \"Direct movement did not reach the requested coordinate\", \"drone_id\": \"beea6f66\", \"final_position\": { \"x\": 703.2147907456568, \"y\": 215.0, \"z\": 15.0 }, \"distance_remaining\": 404.49301...",
+          "action_input": "{\"drone_id\": \"beea6f66\", \"x\": 299.0, \"y\": 200.0, \"z\": 15.0, \"detail\": \"summary\"}",
+          "latency_ms": 6141,
+          "latency_source": "individual",
+          "decision_latency_ms": 6116,
+          "tool_latency_ms": 25,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 24,
+          "name": "move_towards_and_sense",
+          "explanation": "{ \"drone_id\": \"beea6f66\", \"move_result\": { \"status\": \"success\", \"message\": \"Drone moved 150.00m to position (703.21, 365.00, 15.00), heading: 0.0\\u00b0 (battery: -1.3%/-1mAh, remaining: 97.7%/85mAh) - Reached target(s): Circle Target 1\", \"command_id\": \"9f1ee75...",
+          "action_input": "{\"drone_id\": \"beea6f66\", \"distance\": 150.0, \"heading\": 0.0, \"detail\": \"summary\"}",
+          "latency_ms": 7710,
+          "latency_source": "individual",
+          "decision_latency_ms": 7677,
+          "tool_latency_ms": 33,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 25,
+          "name": "navigate_to_and_sense",
+          "explanation": "{ \"drone_id\": \"beea6f66\", \"navigation_result\": { \"success\": false, \"message\": \"Direct movement did not reach the requested coordinate\", \"drone_id\": \"beea6f66\", \"final_position\": { \"x\": 299.0, \"y\": 340.0, \"z\": 15.0 }, \"distance_remaining\": 0.0, \"movement_strate...",
+          "action_input": "{\"drone_id\": \"beea6f66\", \"x\": 299.0, \"y\": 340.0, \"z\": 15.0, \"detail\": \"summary\"}",
+          "latency_ms": 6916,
+          "latency_source": "individual",
+          "decision_latency_ms": 6866,
+          "tool_latency_ms": 50,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 26,
+          "name": "navigate_to_and_sense",
+          "explanation": "{ \"drone_id\": \"beea6f66\", \"navigation_result\": { \"success\": false, \"message\": \"Direct movement did not reach the requested coordinate\", \"drone_id\": \"beea6f66\", \"final_position\": { \"x\": 299.0, \"y\": 124.0, \"z\": 15.0 }, \"distance_remaining\": 0.0, \"movement_strate...",
+          "action_input": "{\"drone_id\": \"beea6f66\", \"x\": 299.0, \"y\": 124.0, \"z\": 15.0, \"detail\": \"summary\"}",
+          "latency_ms": 8703,
+          "latency_source": "individual",
+          "decision_latency_ms": 8664,
+          "tool_latency_ms": 39,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 27,
+          "name": "generate_coverage_path",
+          "explanation": "{ \"coverage_plan_id\": \"coverage-a2fa5b76f54e470d8df4dd60f402c555\", \"target\": { \"id\": \"34f19ce5\", \"name\": \"Polygon Target 2\", \"type\": \"polygon\" }, \"task_radius\": 20.0, \"point_spacing\": 20.0, \"drone_assignments\": [ { \"drone_id\": \"beea6f66\", \"first_waypoint\": { \"...",
+          "action_input": "{\"target_id\": \"34f19ce5\", \"drone_ids\": [\"beea6f66\"]}",
+          "latency_ms": 7278,
+          "latency_source": "individual",
+          "decision_latency_ms": 7216,
+          "tool_latency_ms": 62,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 28,
+          "name": "move_along_path",
+          "explanation": "{ \"status\": \"success\", \"message\": \"Drone completed path with 15 waypoints (total distance: 992.21m, battery: -8.4%/-7mAh, remaining: 83.6%/73mAh) - Reached target(s): Polygon Target 2\", \"command_id\": \"d849d40e\", \"drone_id\": \"beea6f66\", \"command\": \"move_along_p...",
+          "action_input": "{\"drone_id\": \"beea6f66\", \"coverage_plan_id\": \"coverage-a2fa5b76f54e470d8df4dd60f402c555\", \"allow_partial_move\": false}",
+          "latency_ms": 5256,
+          "latency_source": "individual",
+          "decision_latency_ms": 5209,
+          "tool_latency_ms": 47,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 29,
+          "name": "get_target_info",
+          "explanation": "{ \"id\": \"34f19ce5\", \"name\": \"Polygon Target 2\", \"type\": \"polygon\", \"position\": { \"x\": 299.0, \"y\": 124.0, \"z\": 0.0 }, \"description\": \"\", \"radius\": 1.0, \"created_at\": 1775664888.7299259, \"last_updated\": 1789832840.46135, \"velocity\": null, \"moving_path\": null, \"m...",
+          "action_input": "{\"target_id\": \"34f19ce5\"}",
+          "latency_ms": 6604,
+          "latency_source": "individual",
+          "decision_latency_ms": 6515,
+          "tool_latency_ms": 89,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 30,
+          "name": "get_target_info",
+          "explanation": "{ \"id\": \"db0bc200\", \"name\": \"Polygon Target 3\", \"type\": \"polygon\", \"position\": { \"x\": 96.0, \"y\": 349.0, \"z\": 0.0 }, \"description\": \"\", \"radius\": 1.0, \"created_at\": 1775664888.729975, \"last_updated\": 1775664888.729975, \"velocity\": null, \"moving_path\": null, \"mo...",
+          "action_input": "{\"target_id\": \"db0bc200\"}",
+          "latency_ms": 89,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 89,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 31,
+          "name": "sense_nearby_entities",
+          "explanation": "{ \"sensed_drone_ids\": [ \"0f034b00\", \"3a01f549\", \"beea6f66\", \"f32e68d7\" ], \"per_drone\": { \"0f034b00\": { \"drone_id\": null, \"counts\": { \"targets\": 1, \"obstacles\": 0, \"drones\": 0 }, \"targets\": [ { \"id\": \"db0bc200\", \"name\": \"Polygon Target 3\", \"type\": \"polygon\", \"p...",
+          "action_input": "{\"drone_ids\": [\"0f034b00\", \"3a01f549\", \"beea6f66\", \"f32e68d7\"], \"detail\": \"summary\"}",
+          "latency_ms": 16005,
+          "latency_source": "individual",
+          "decision_latency_ms": 15982,
+          "tool_latency_ms": 23,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 32,
+          "name": "land",
+          "explanation": "{ \"command_id\": \"8b80ccf1\", \"drone_id\": \"0f034b00\", \"command\": \"land\", \"status\": \"success\", \"message\": \"Drone landed successfully (battery: -0.0%/-0mAh, remaining: 94.5%/71mAh)\", \"timestamp\": 1789832872.1752791 }",
+          "action_input": "{\"drone_id\": \"0f034b00\"}",
+          "latency_ms": 9109,
+          "latency_source": "individual",
+          "decision_latency_ms": 9090,
+          "tool_latency_ms": 19,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 33,
+          "name": "land",
+          "explanation": "{ \"command_id\": \"9d10aa82\", \"drone_id\": \"beea6f66\", \"command\": \"land\", \"status\": \"success\", \"message\": \"Drone landed successfully (battery: -0.0%/-0mAh, remaining: 83.6%/73mAh)\", \"timestamp\": 1789832872.17831 }",
+          "action_input": "{\"drone_id\": \"beea6f66\"}",
+          "latency_ms": 23,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 23,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 34,
+          "name": "land",
+          "explanation": "{ \"command_id\": \"23c16680\", \"drone_id\": \"3a01f549\", \"command\": \"land\", \"status\": \"success\", \"message\": \"Drone landed successfully (battery: -0.0%/-0mAh, remaining: 95.0%/62mAh)\", \"timestamp\": 1789832872.180037 }",
+          "action_input": "{\"drone_id\": \"3a01f549\"}",
+          "latency_ms": 22,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 22,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 35,
+          "name": "land",
+          "explanation": "{ \"command_id\": \"fd0626b8\", \"drone_id\": \"f32e68d7\", \"command\": \"land\", \"status\": \"success\", \"message\": \"Drone landed successfully (battery: -0.0%/-0mAh, remaining: 91.0%/65mAh)\", \"timestamp\": 1789832872.18131 }",
+          "action_input": "{\"drone_id\": \"f32e68d7\"}",
+          "latency_ms": 24,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 24,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 36,
+          "name": "final_answer",
+          "explanation": "All drones landed safely. Here's the mission summary: --- ## Area Coverage Complete ✅ ### **Polygon Target 2** (114m × 114m | ~13,000 m²) | Drone | Waypoints | Distance | Coverage | |-------|-----------|----------|----------| | Drone 2 (`3a01f549`) | 8 | 510m...",
+          "latency_ms": 1,
+          "latency_source": "individual",
+          "decision_latency_ms": 1,
+          "tool_latency_ms": 0,
+          "latency_scope": "final_response"
+        }
+      ],
+      "agent_job_id": "154e83ce-9952-4f7a-b1d7-9993c427550f",
+      "agent_token_usage": {
+        "prompt_tokens": 503652,
+        "completion_tokens": 8353,
+        "total_tokens": 512005,
+        "llm_calls": 19
+      }
+    },
+    {
+      "session_id": "275fef80",
+      "session_name": "Area Search Hard 3",
+      "task_id": "fd3f93b7",
+      "task_name": "Dual Drone Area Coverage Search",
+      "status": "passed",
+      "timestamp": "2026-09-19T23:49:06.950644",
+      "error": null,
+      "statistics": {
+        "total_checks_apis": 5,
+        "passed_checks_apis": 5,
+        "failed_checks_apis": 0,
+        "pass_rate": 1.0
+      },
+      "details": [
+        {
+          "type": "group",
+          "logic": "AND",
+          "depth": 0,
+          "count": 5
+        },
+        {
+          "type": "leaf",
+          "endpoint": "/check/drone_has_taken_off",
+          "parameters": {
+            "drone_id": "f2b29c03",
+            "min_altitude": 22.0,
+            "max_altitude": 22.0,
+            "tolerance": 1.0
+          },
+          "expect": true,
+          "actual": true,
+          "result": true,
+          "response": {
+            "result": true,
+            "value": 1,
+            "drone_id": "f2b29c03",
+            "takeoff_count": 1,
+            "last_takeoff_time": 1789832916.817524,
+            "max_altitude_reached": 22.0,
+            "min_altitude_threshold": 22.0,
+            "max_altitude_threshold": 22.0,
+            "tolerance": 1.0,
+            "matched_altitude_min": 21.0,
+            "matched_altitude_max": 23.0
+          },
+          "depth": 1
+        },
+        {
+          "type": "leaf",
+          "endpoint": "/check/drone_has_taken_off",
+          "parameters": {
+            "drone_id": "1a663fd4",
+            "min_altitude": 22.0,
+            "max_altitude": 22.0,
+            "tolerance": 1.0
+          },
+          "expect": true,
+          "actual": true,
+          "result": true,
+          "response": {
+            "result": true,
+            "value": 1,
+            "drone_id": "1a663fd4",
+            "takeoff_count": 1,
+            "last_takeoff_time": 1789832916.820482,
+            "max_altitude_reached": 22.0,
+            "min_altitude_threshold": 22.0,
+            "max_altitude_threshold": 22.0,
+            "tolerance": 1.0,
+            "matched_altitude_min": 21.0,
+            "matched_altitude_max": 23.0
+          },
+          "depth": 1
+        },
+        {
+          "type": "leaf",
+          "endpoint": "/check/target_is_reached_by_drone",
+          "parameters": {
+            "target_id": "22ddb7f3",
+            "drone_id": "f2b29c03"
+          },
+          "expect": true,
+          "actual": true,
+          "result": true,
+          "response": {
+            "result": true,
+            "value": 80,
+            "session_id": "275fef80",
+            "target_id": "22ddb7f3",
+            "drone_id": "f2b29c03",
+            "since_timestamp": null
+          },
+          "depth": 1
+        },
+        {
+          "type": "leaf",
+          "endpoint": "/check/target_is_reached_by_drone",
+          "parameters": {
+            "target_id": "22ddb7f3",
+            "drone_id": "1a663fd4"
+          },
+          "expect": true,
+          "actual": true,
+          "result": true,
+          "response": {
+            "result": true,
+            "value": 80,
+            "session_id": "275fef80",
+            "target_id": "22ddb7f3",
+            "drone_id": "1a663fd4",
+            "since_timestamp": null
+          },
+          "depth": 1
+        },
+        {
+          "type": "leaf",
+          "endpoint": "/check/target_is_fully_searched",
+          "parameters": {
+            "target_id": "22ddb7f3",
+            "coverage_threshold": 0.95
+          },
+          "expect": true,
+          "actual": true,
+          "result": true,
+          "response": {
+            "result": true,
+            "value": 1.0,
+            "session_id": "275fef80",
+            "target_id": "22ddb7f3",
+            "coverage_percentage": 100.0,
+            "coverage_threshold": 0.95
+          },
+          "depth": 1
+        }
+      ],
+      "agent_latency_ms": 50250,
+      "agent_step_count": 10,
+      "agent_avg_step_latency_ms": 4964.7,
+      "agent_step_latency_source": "individual",
+      "agent_steps": [
+        {
+          "step": 1,
+          "name": "list_drones",
+          "explanation": "[ { \"id\": \"54580e8d\", \"name\": \"Drone 1\", \"status\": \"idle\", \"position\": { \"x\": 811.68, \"y\": 475.78999999999996, \"z\": 0.0 }, \"battery_level\": 100.0, \"task_radius\": 20.0, \"perceived_radius\": 50.0 }, { \"id\": \"f2b29c03\", \"name\": \"Drone 2\", \"status\": \"idle\", \"positi...",
+          "latency_ms": 5670,
+          "latency_source": "individual",
+          "decision_latency_ms": 5665,
+          "tool_latency_ms": 5,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 2,
+          "name": "get_weather",
+          "explanation": "{ \"id\": \"1b8a094a\", \"name\": \"Area Search Hard 3 Environment\", \"weather\": \"clear\", \"temperature\": -11.167417946595412, \"humidity\": 39.4, \"pressure\": 1030.0, \"wind_speed\": 0.2047175818983562, \"wind_direction\": \"northeast\", \"visibility\": 8427.3, \"created_at\": 177...",
+          "latency_ms": 5,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 5,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 3,
+          "name": "sense_nearby_entities",
+          "explanation": "{ \"sensed_drone_ids\": [ \"f2b29c03\", \"1a663fd4\" ], \"per_drone\": { \"f2b29c03\": { \"drone_id\": null, \"counts\": { \"targets\": 1, \"obstacles\": 1, \"drones\": 2 }, \"targets\": [ { \"id\": \"22ddb7f3\", \"name\": \"Circle Target 1\", \"type\": \"circle\", \"position\": { \"x\": 754.0, \"y...",
+          "action_input": "{\"drone_ids\": [\"f2b29c03\", \"1a663fd4\"], \"detail\": \"summary\"}",
+          "latency_ms": 5755,
+          "latency_source": "individual",
+          "decision_latency_ms": 5737,
+          "tool_latency_ms": 18,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 4,
+          "name": "take_off",
+          "explanation": "{ \"command_id\": \"548c700c\", \"drone_id\": \"f2b29c03\", \"command\": \"take_off\", \"status\": \"success\", \"message\": \"Drone taking off to altitude 22.0m (battery: -0.5%/-0mAh, remaining: 99.5%/78mAh)\", \"timestamp\": 1789832916.817536 }",
+          "action_input": "{\"drone_id\": \"f2b29c03\", \"altitude\": 22.0}",
+          "latency_ms": 8801,
+          "latency_source": "individual",
+          "decision_latency_ms": 8783,
+          "tool_latency_ms": 18,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 5,
+          "name": "take_off",
+          "explanation": "{ \"command_id\": \"c4ebd098\", \"drone_id\": \"1a663fd4\", \"command\": \"take_off\", \"status\": \"success\", \"message\": \"Drone taking off to altitude 22.0m (battery: -0.5%/-0mAh, remaining: 99.5%/77mAh)\", \"timestamp\": 1789832916.8204858 }",
+          "action_input": "{\"drone_id\": \"1a663fd4\", \"altitude\": 22.0}",
+          "latency_ms": 18,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 18,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 6,
+          "name": "generate_coverage_path",
+          "explanation": "{ \"coverage_plan_id\": \"coverage-7282b57a4a13469e997c2194044e2686\", \"target\": { \"id\": \"22ddb7f3\", \"name\": \"Circle Target 1\", \"type\": \"circle\" }, \"task_radius\": 20.0, \"point_spacing\": 20.0, \"drone_assignments\": [ { \"drone_id\": \"f2b29c03\", \"first_waypoint\": { \"x\"...",
+          "action_input": "{\"target_id\": \"22ddb7f3\", \"drone_ids\": [\"f2b29c03\", \"1a663fd4\"]}",
+          "latency_ms": 4630,
+          "latency_source": "individual",
+          "decision_latency_ms": 4541,
+          "tool_latency_ms": 89,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 7,
+          "name": "move_along_path_and_sense",
+          "explanation": "{ \"drone_id\": \"f2b29c03\", \"move_result\": { \"status\": \"success\", \"message\": \"Drone completed path with 2 waypoints (total distance: 52.09m, battery: -0.4%/-0mAh, remaining: 99.1%/78mAh) - Reached target(s): Circle Target 1\", \"command_id\": \"1bd2f42f\", \"drone_id\"...",
+          "action_input": "{\"drone_id\": \"f2b29c03\", \"coverage_plan_id\": \"coverage-7282b57a4a13469e997c2194044e2686\", \"allow_partial_move\": false, \"detail\": \"summary\"}",
+          "latency_ms": 7751,
+          "latency_source": "individual",
+          "decision_latency_ms": 7705,
+          "tool_latency_ms": 46,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 8,
+          "name": "move_along_path_and_sense",
+          "explanation": "{ \"drone_id\": \"1a663fd4\", \"move_result\": { \"status\": \"success\", \"message\": \"Drone completed path with 3 waypoints (total distance: 66.09m, battery: -0.4%/-0mAh, remaining: 99.1%/77mAh) - Reached target(s): Circle Target 1\", \"command_id\": \"861186fc\", \"drone_id\"...",
+          "action_input": "{\"drone_id\": \"1a663fd4\", \"coverage_plan_id\": \"coverage-7282b57a4a13469e997c2194044e2686\", \"allow_partial_move\": false, \"detail\": \"summary\"}",
+          "latency_ms": 46,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 46,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 9,
+          "name": "get_target_info",
+          "explanation": "{ \"id\": \"22ddb7f3\", \"name\": \"Circle Target 1\", \"type\": \"circle\", \"position\": { \"x\": 754.0, \"y\": 394.0, \"z\": 0.0 }, \"description\": \"\", \"radius\": 27, \"created_at\": 1775666580.040467, \"last_updated\": 1789744841.506422, \"velocity\": null, \"moving_path\": null, \"movi...",
+          "action_input": "{\"target_id\": \"22ddb7f3\"}",
+          "latency_ms": 6530,
+          "latency_source": "individual",
+          "decision_latency_ms": 6441,
+          "tool_latency_ms": 89,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 10,
+          "name": "final_answer",
+          "explanation": "**Mission complete.** Here's a summary of the coordinated area coverage operation: | Detail | Drone 2 (`f2b29c03`) | Drone 9 (`1a663fd4`) | |---|---|---| | **Takeoff** | 22m altitude | 22m altitude | | **Path** | (780.0, 387) → (728.0, 387) | (728.0, 387) → (7...",
+          "latency_ms": 10441,
+          "latency_source": "individual",
+          "decision_latency_ms": 10441,
+          "tool_latency_ms": 0,
+          "latency_scope": "final_response"
+        }
+      ],
+      "agent_job_id": "0743cbf0-bb1e-413a-a393-9fd9bc6ec041",
+      "agent_token_usage": {
+        "prompt_tokens": 86620,
+        "completion_tokens": 1939,
+        "total_tokens": 88559,
+        "llm_calls": 7
+      }
+    },
+    {
+      "session_id": "275fef80",
+      "session_name": "Area Search Hard 3",
+      "task_id": "9255c109",
+      "task_name": "Any Drone Two-Target Area Coverage Search",
+      "status": "passed",
+      "timestamp": "2026-09-19T23:51:23.533589",
+      "error": null,
+      "statistics": {
+        "total_checks_apis": 4,
+        "passed_checks_apis": 4,
+        "failed_checks_apis": 0,
+        "pass_rate": 1.0
+      },
+      "details": [
+        {
+          "type": "group",
+          "logic": "AND",
+          "depth": 0,
+          "count": 4
+        },
+        {
+          "type": "leaf",
+          "endpoint": "/check/target_is_reached",
+          "parameters": {
+            "target_id": "87137842"
+          },
+          "expect": true,
+          "actual": true,
+          "result": true,
+          "response": {
+            "result": true,
+            "value": 6,
+            "session_id": "275fef80",
+            "target_id": "87137842",
+            "reached_by": [
+              "c5d9ee19",
+              "a4e27461",
+              "54580e8d",
+              "f2b29c03",
+              "b4c4245a",
+              "287644e6"
+            ],
+            "since_timestamp": null
+          },
+          "depth": 1
+        },
+        {
+          "type": "leaf",
+          "endpoint": "/check/target_is_reached",
+          "parameters": {
+            "target_id": "22ddb7f3"
+          },
+          "expect": true,
+          "actual": true,
+          "result": true,
+          "response": {
+            "result": true,
+            "value": 6,
+            "session_id": "275fef80",
+            "target_id": "22ddb7f3",
+            "reached_by": [
+              "4e3dfde3",
+              "5c276319",
+              "f2b29c03",
+              "138b06b0",
+              "287644e6",
+              "1a663fd4"
+            ],
+            "since_timestamp": null
+          },
+          "depth": 1
+        },
+        {
+          "type": "leaf",
+          "endpoint": "/check/target_is_fully_searched",
+          "parameters": {
+            "target_id": "87137842",
+            "coverage_threshold": 0.95
+          },
+          "expect": true,
+          "actual": true,
+          "result": true,
+          "response": {
+            "result": true,
+            "value": 1.0,
+            "session_id": "275fef80",
+            "target_id": "87137842",
+            "coverage_percentage": 100.0,
+            "coverage_threshold": 0.95
+          },
+          "depth": 1
+        },
+        {
+          "type": "leaf",
+          "endpoint": "/check/target_is_fully_searched",
+          "parameters": {
+            "target_id": "22ddb7f3",
+            "coverage_threshold": 0.95
+          },
+          "expect": true,
+          "actual": true,
+          "result": true,
+          "response": {
+            "result": true,
+            "value": 1.0,
+            "session_id": "275fef80",
+            "target_id": "22ddb7f3",
+            "coverage_percentage": 100.0,
+            "coverage_threshold": 0.95
+          },
+          "depth": 1
+        }
+      ],
+      "agent_latency_ms": 130873,
+      "agent_step_count": 39,
+      "agent_avg_step_latency_ms": 2972,
+      "agent_step_latency_source": "individual",
+      "agent_steps": [
+        {
+          "step": 1,
+          "name": "list_drones",
+          "explanation": "[ { \"id\": \"54580e8d\", \"name\": \"Drone 1\", \"status\": \"idle\", \"position\": { \"x\": 811.68, \"y\": 475.78999999999996, \"z\": 0.0 }, \"battery_level\": 100.0, \"task_radius\": 20.0, \"perceived_radius\": 50.0 }, { \"id\": \"f2b29c03\", \"name\": \"Drone 2\", \"status\": \"idle\", \"positi...",
+          "latency_ms": 4674,
+          "latency_source": "individual",
+          "decision_latency_ms": 4659,
+          "tool_latency_ms": 15,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 2,
+          "name": "get_weather",
+          "explanation": "{ \"id\": \"1b8a094a\", \"name\": \"Area Search Hard 3 Environment\", \"weather\": \"clear\", \"temperature\": -9.208794940064767, \"humidity\": 39.4, \"pressure\": 1030.0, \"wind_speed\": 0.24511669715354942, \"wind_direction\": \"southwest\", \"visibility\": 8427.3, \"created_at\": 177...",
+          "latency_ms": 15,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 15,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 3,
+          "name": "sense_nearby_entities",
+          "explanation": "{ \"sensed_drone_ids\": [ \"54580e8d\", \"f2b29c03\", \"a4e27461\", \"287644e6\", \"5c276319\", \"4e3dfde3\", \"c5d9ee19\", \"b4c4245a\", \"1a663fd4\", \"138b06b0\" ], \"per_drone\": { \"54580e8d\": { \"drones\": [ { \"id\": \"287644e6\", \"name\": \"Drone 4\", \"model\": \"Model-X2\", \"status\": \"id...",
+          "action_input": "{\"drone_ids\": [\"54580e8d\", \"f2b29c03\", \"a4e27461\", \"287644e6\", \"5c276319\", \"4e3dfde3\", \"c5d9ee19\", \"b4c4245a\", \"1a663fd4\", \"138b06b0\"], \"detail\": \"full\"}",
+          "latency_ms": 6384,
+          "latency_source": "individual",
+          "decision_latency_ms": 6334,
+          "tool_latency_ms": 50,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 4,
+          "name": "take_off",
+          "explanation": "{ \"command_id\": \"b870bd26\", \"drone_id\": \"54580e8d\", \"command\": \"take_off\", \"status\": \"success\", \"message\": \"Drone taking off to altitude 20.0m (battery: -0.5%/-0mAh, remaining: 99.5%/77mAh)\", \"timestamp\": 1789832987.165269 }",
+          "action_input": "{\"drone_id\": \"54580e8d\", \"altitude\": 20.0}",
+          "latency_ms": 23525,
+          "latency_source": "individual",
+          "decision_latency_ms": 23503,
+          "tool_latency_ms": 22,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 5,
+          "name": "take_off",
+          "explanation": "{ \"command_id\": \"46117598\", \"drone_id\": \"f2b29c03\", \"command\": \"take_off\", \"status\": \"success\", \"message\": \"Drone taking off to altitude 20.0m (battery: -0.5%/-0mAh, remaining: 99.5%/78mAh)\", \"timestamp\": 1789832987.172863 }",
+          "action_input": "{\"drone_id\": \"f2b29c03\", \"altitude\": 20.0}",
+          "latency_ms": 33,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 33,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 6,
+          "name": "take_off",
+          "explanation": "{ \"command_id\": \"9cd67861\", \"drone_id\": \"a4e27461\", \"command\": \"take_off\", \"status\": \"success\", \"message\": \"Drone taking off to altitude 20.0m (battery: -0.5%/-0mAh, remaining: 99.5%/98mAh)\", \"timestamp\": 1789832987.175086 }",
+          "action_input": "{\"drone_id\": \"a4e27461\", \"altitude\": 20.0}",
+          "latency_ms": 34,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 34,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 7,
+          "name": "take_off",
+          "explanation": "{ \"command_id\": \"8d373d31\", \"drone_id\": \"287644e6\", \"command\": \"take_off\", \"status\": \"success\", \"message\": \"Drone taking off to altitude 20.0m (battery: -0.5%/-0mAh, remaining: 99.5%/77mAh)\", \"timestamp\": 1789832987.1778529 }",
+          "action_input": "{\"drone_id\": \"287644e6\", \"altitude\": 20.0}",
+          "latency_ms": 37,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 37,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 8,
+          "name": "take_off",
+          "explanation": "{ \"command_id\": \"7f5dd56c\", \"drone_id\": \"5c276319\", \"command\": \"take_off\", \"status\": \"success\", \"message\": \"Drone taking off to altitude 20.0m (battery: -0.5%/-0mAh, remaining: 99.5%/95mAh)\", \"timestamp\": 1789832987.1802208 }",
+          "action_input": "{\"drone_id\": \"5c276319\", \"altitude\": 20.0}",
+          "latency_ms": 37,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 37,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 9,
+          "name": "take_off",
+          "explanation": "{ \"command_id\": \"989bcca6\", \"drone_id\": \"4e3dfde3\", \"command\": \"take_off\", \"status\": \"success\", \"message\": \"Drone taking off to altitude 20.0m (battery: -0.5%/-0mAh, remaining: 99.5%/73mAh)\", \"timestamp\": 1789832987.182183 }",
+          "action_input": "{\"drone_id\": \"4e3dfde3\", \"altitude\": 20.0}",
+          "latency_ms": 38,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 38,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 10,
+          "name": "take_off",
+          "explanation": "{ \"command_id\": \"030d14a5\", \"drone_id\": \"c5d9ee19\", \"command\": \"take_off\", \"status\": \"success\", \"message\": \"Drone taking off to altitude 20.0m (battery: -0.5%/-0mAh, remaining: 99.5%/91mAh)\", \"timestamp\": 1789832987.185524 }",
+          "action_input": "{\"drone_id\": \"c5d9ee19\", \"altitude\": 20.0}",
+          "latency_ms": 42,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 42,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 11,
+          "name": "take_off",
+          "explanation": "{ \"command_id\": \"ee680899\", \"drone_id\": \"1a663fd4\", \"command\": \"take_off\", \"status\": \"success\", \"message\": \"Drone taking off to altitude 20.0m (battery: -0.5%/-0mAh, remaining: 99.5%/77mAh)\", \"timestamp\": 1789832987.188394 }",
+          "action_input": "{\"drone_id\": \"1a663fd4\", \"altitude\": 20.0}",
+          "latency_ms": 44,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 44,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 12,
+          "name": "take_off",
+          "explanation": "{ \"command_id\": \"e9914831\", \"drone_id\": \"138b06b0\", \"command\": \"take_off\", \"status\": \"success\", \"message\": \"Drone taking off to altitude 20.0m (battery: -0.5%/-0mAh, remaining: 99.5%/74mAh)\", \"timestamp\": 1789832987.189932 }",
+          "action_input": "{\"drone_id\": \"138b06b0\", \"altitude\": 20.0}",
+          "latency_ms": 43,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 43,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 13,
+          "name": "take_off",
+          "explanation": "{ \"command_id\": \"b1711999\", \"drone_id\": \"b4c4245a\", \"command\": \"take_off\", \"status\": \"success\", \"message\": \"Drone taking off to altitude 20.0m (battery: -0.5%/-0mAh, remaining: 99.5%/82mAh)\", \"timestamp\": 1789832987.191377 }",
+          "action_input": "{\"drone_id\": \"b4c4245a\", \"altitude\": 20.0}",
+          "latency_ms": 44,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 44,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 14,
+          "name": "generate_coverage_path",
+          "explanation": "{ \"coverage_plan_id\": \"coverage-a1f8bb1ed81d4a7eb8fbb9f6e9b83c9b\", \"target\": { \"id\": \"22ddb7f3\", \"name\": \"Circle Target 1\", \"type\": \"circle\" }, \"task_radius\": 20.0, \"point_spacing\": 20.0, \"drone_assignments\": [ { \"drone_id\": \"f2b29c03\", \"first_waypoint\": { \"x\"...",
+          "action_input": "{\"target_id\": \"22ddb7f3\", \"drone_ids\": [\"f2b29c03\", \"5c276319\", \"4e3dfde3\", \"1a663fd4\", \"138b06b0\"]}",
+          "latency_ms": 11181,
+          "latency_source": "individual",
+          "decision_latency_ms": 11053,
+          "tool_latency_ms": 128,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 15,
+          "name": "generate_coverage_path",
+          "explanation": "{ \"coverage_plan_id\": \"coverage-d343d7df3d6549f3a5ff863a2411ddf7\", \"target\": { \"id\": \"87137842\", \"name\": \"Polygon Target 1\", \"type\": \"polygon\" }, \"task_radius\": 20.0, \"point_spacing\": 20.0, \"drone_assignments\": [ { \"drone_id\": \"54580e8d\", \"first_waypoint\": { \"...",
+          "action_input": "{\"target_id\": \"87137842\", \"drone_ids\": [\"54580e8d\", \"a4e27461\", \"287644e6\", \"c5d9ee19\", \"b4c4245a\"]}",
+          "latency_ms": 127,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 127,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 16,
+          "name": "move_along_path",
+          "explanation": "{ \"status\": \"success\", \"message\": \"Drone completed path with 4 waypoints (total distance: 404.00m, battery: -2.4%/-2mAh, remaining: 97.1%/75mAh) - Reached target(s): Polygon Target 1, Polygon Target 2\", \"command_id\": \"ff326e60\", \"drone_id\": \"54580e8d\", \"comman...",
+          "action_input": "{\"drone_id\": \"54580e8d\", \"coverage_plan_id\": \"coverage-d343d7df3d6549f3a5ff863a2411ddf7\", \"allow_partial_move\": false}",
+          "latency_ms": 22823,
+          "latency_source": "individual",
+          "decision_latency_ms": 22777,
+          "tool_latency_ms": 46,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 17,
+          "name": "move_along_path",
+          "explanation": "{ \"status\": \"success\", \"message\": \"Drone completed path with 5 waypoints (total distance: 456.00m, battery: -2.7%/-3mAh, remaining: 96.8%/96mAh) - Reached target(s): Polygon Target 1, Polygon Target 2\", \"command_id\": \"ebc18735\", \"drone_id\": \"a4e27461\", \"comman...",
+          "action_input": "{\"drone_id\": \"a4e27461\", \"coverage_plan_id\": \"coverage-d343d7df3d6549f3a5ff863a2411ddf7\", \"allow_partial_move\": false}",
+          "latency_ms": 137,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 137,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 18,
+          "name": "move_along_path",
+          "explanation": "{ \"status\": \"success\", \"message\": \"Drone completed path with 5 waypoints (total distance: 424.00m, battery: -2.5%/-2mAh, remaining: 97.0%/75mAh) - Reached target(s): Polygon Target 1, Polygon Target 2\", \"command_id\": \"5a70b72b\", \"drone_id\": \"287644e6\", \"comman...",
+          "action_input": "{\"drone_id\": \"287644e6\", \"coverage_plan_id\": \"coverage-d343d7df3d6549f3a5ff863a2411ddf7\", \"allow_partial_move\": false}",
+          "latency_ms": 138,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 138,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 19,
+          "name": "move_along_path",
+          "explanation": "{ \"status\": \"success\", \"message\": \"Drone completed path with 7 waypoints (total distance: 620.00m, battery: -3.7%/-3mAh, remaining: 95.8%/79mAh) - Reached target(s): Polygon Target 1, Polygon Target 2\", \"command_id\": \"5076e59d\", \"drone_id\": \"b4c4245a\", \"comman...",
+          "action_input": "{\"drone_id\": \"b4c4245a\", \"coverage_plan_id\": \"coverage-d343d7df3d6549f3a5ff863a2411ddf7\", \"allow_partial_move\": false}",
+          "latency_ms": 139,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 139,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 20,
+          "name": "move_along_path",
+          "explanation": "{ \"status\": \"success\", \"message\": \"Drone completed path with 2 waypoints (total distance: 52.09m, battery: -0.3%/-0mAh, remaining: 99.2%/78mAh) - Reached target(s): Circle Target 1\", \"command_id\": \"298b43f9\", \"drone_id\": \"f2b29c03\", \"command\": \"move_along_path...",
+          "action_input": "{\"drone_id\": \"f2b29c03\", \"coverage_plan_id\": \"coverage-a1f8bb1ed81d4a7eb8fbb9f6e9b83c9b\", \"allow_partial_move\": false}",
+          "latency_ms": 139,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 139,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 21,
+          "name": "move_along_path",
+          "explanation": "{ \"status\": \"success\", \"message\": \"Drone completed path with 1 waypoints (total distance: 0.00m, battery: -0.0%/-0mAh, remaining: 99.5%/77mAh) - Reached target(s): Circle Target 1\", \"command_id\": \"686b0808\", \"drone_id\": \"1a663fd4\", \"command\": \"move_along_path\"...",
+          "action_input": "{\"drone_id\": \"1a663fd4\", \"coverage_plan_id\": \"coverage-a1f8bb1ed81d4a7eb8fbb9f6e9b83c9b\", \"allow_partial_move\": false}",
+          "latency_ms": 139,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 139,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 22,
+          "name": "move_along_path",
+          "explanation": "{ \"status\": \"success\", \"message\": \"Drone completed path with 5 waypoints (total distance: 464.00m, battery: -2.8%/-3mAh, remaining: 96.7%/88mAh) - Reached target(s): Polygon Target 1, Polygon Target 2\", \"command_id\": \"8328c405\", \"drone_id\": \"c5d9ee19\", \"comman...",
+          "action_input": "{\"drone_id\": \"c5d9ee19\", \"coverage_plan_id\": \"coverage-d343d7df3d6549f3a5ff863a2411ddf7\", \"allow_partial_move\": false}",
+          "latency_ms": 140,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 140,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 23,
+          "name": "move_along_path",
+          "explanation": "{ \"status\": \"success\", \"message\": \"Drone completed path with 2 waypoints (total distance: 52.09m, battery: -0.3%/-0mAh, remaining: 99.2%/95mAh) - Reached target(s): Circle Target 1\", \"command_id\": \"0d00285c\", \"drone_id\": \"5c276319\", \"command\": \"move_along_path...",
+          "action_input": "{\"drone_id\": \"5c276319\", \"coverage_plan_id\": \"coverage-a1f8bb1ed81d4a7eb8fbb9f6e9b83c9b\", \"allow_partial_move\": false}",
+          "latency_ms": 140,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 140,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 24,
+          "name": "move_along_path",
+          "explanation": "{ \"status\": \"success\", \"message\": \"Drone completed path with 1 waypoints (total distance: 0.00m, battery: -0.0%/-0mAh, remaining: 99.5%/73mAh) - Reached target(s): Circle Target 1\", \"command_id\": \"425639bd\", \"drone_id\": \"4e3dfde3\", \"command\": \"move_along_path\"...",
+          "action_input": "{\"drone_id\": \"4e3dfde3\", \"coverage_plan_id\": \"coverage-a1f8bb1ed81d4a7eb8fbb9f6e9b83c9b\", \"allow_partial_move\": false}",
+          "latency_ms": 139,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 139,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 25,
+          "name": "move_along_path",
+          "explanation": "{ \"status\": \"success\", \"message\": \"Drone completed path with 1 waypoints (total distance: 0.00m, battery: -0.0%/-0mAh, remaining: 99.5%/74mAh) - Reached target(s): Circle Target 1\", \"command_id\": \"463a4738\", \"drone_id\": \"138b06b0\", \"command\": \"move_along_path\"...",
+          "action_input": "{\"drone_id\": \"138b06b0\", \"coverage_plan_id\": \"coverage-a1f8bb1ed81d4a7eb8fbb9f6e9b83c9b\", \"allow_partial_move\": false}",
+          "latency_ms": 140,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 140,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 26,
+          "name": "get_target_info",
+          "explanation": "{ \"id\": \"22ddb7f3\", \"name\": \"Circle Target 1\", \"type\": \"circle\", \"position\": { \"x\": 754.0, \"y\": 394.0, \"z\": 0.0 }, \"description\": \"\", \"radius\": 27, \"created_at\": 1775666580.040467, \"last_updated\": 1789744841.506422, \"velocity\": null, \"moving_path\": null, \"movi...",
+          "action_input": "{\"target_id\": \"22ddb7f3\"}",
+          "latency_ms": 4791,
+          "latency_source": "individual",
+          "decision_latency_ms": 4669,
+          "tool_latency_ms": 122,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 27,
+          "name": "get_target_info",
+          "explanation": "{ \"id\": \"87137842\", \"name\": \"Polygon Target 1\", \"type\": \"polygon\", \"position\": { \"x\": 716.0, \"y\": 572.0, \"z\": 0.0 }, \"description\": \"\", \"radius\": 1.0, \"created_at\": 1775666580.040341, \"last_updated\": 1789741225.136802, \"velocity\": null, \"moving_path\": null, \"m...",
+          "action_input": "{\"target_id\": \"87137842\"}",
+          "latency_ms": 122,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 122,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 28,
+          "name": "sense_nearby_entities",
+          "explanation": "{ \"sensed_drone_ids\": [ \"54580e8d\", \"f2b29c03\" ], \"per_drone\": { \"54580e8d\": { \"drones\": [ { \"id\": \"287644e6\", \"name\": \"Drone 4\", \"model\": \"Model-X2\", \"status\": \"hovering\", \"position\": { \"x\": 811.68, \"y\": 535.79, \"z\": 20.0 }, \"heading\": 0.0, \"speed\": 0.0, \"bat...",
+          "action_input": "{\"drone_ids\": [\"54580e8d\", \"f2b29c03\"], \"detail\": \"full\"}",
+          "latency_ms": 25713,
+          "latency_source": "individual",
+          "decision_latency_ms": 25692,
+          "tool_latency_ms": 21,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 29,
+          "name": "land",
+          "explanation": "{ \"command_id\": \"861f8d3e\", \"drone_id\": \"54580e8d\", \"command\": \"land\", \"status\": \"success\", \"message\": \"Drone landed successfully (battery: -0.0%/-0mAh, remaining: 97.1%/75mAh)\", \"timestamp\": 1789833066.3405921 }",
+          "action_input": "{\"drone_id\": \"54580e8d\"}",
+          "latency_ms": 14556,
+          "latency_source": "individual",
+          "decision_latency_ms": 14534,
+          "tool_latency_ms": 22,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 30,
+          "name": "land",
+          "explanation": "{ \"command_id\": \"d1f166b2\", \"drone_id\": \"f2b29c03\", \"command\": \"land\", \"status\": \"success\", \"message\": \"Drone landed successfully (battery: -0.0%/-0mAh, remaining: 99.2%/78mAh)\", \"timestamp\": 1789833066.349905 }",
+          "action_input": "{\"drone_id\": \"f2b29c03\"}",
+          "latency_ms": 40,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 40,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 31,
+          "name": "land",
+          "explanation": "{ \"command_id\": \"171f90de\", \"drone_id\": \"a4e27461\", \"command\": \"land\", \"status\": \"success\", \"message\": \"Drone landed successfully (battery: -0.0%/-0mAh, remaining: 96.8%/96mAh)\", \"timestamp\": 1789833066.3522508 }",
+          "action_input": "{\"drone_id\": \"a4e27461\"}",
+          "latency_ms": 42,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 42,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 32,
+          "name": "land",
+          "explanation": "{ \"command_id\": \"fe768a48\", \"drone_id\": \"4e3dfde3\", \"command\": \"land\", \"status\": \"success\", \"message\": \"Drone landed successfully (battery: -0.0%/-0mAh, remaining: 99.5%/73mAh)\", \"timestamp\": 1789833066.354296 }",
+          "action_input": "{\"drone_id\": \"4e3dfde3\"}",
+          "latency_ms": 44,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 44,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 33,
+          "name": "land",
+          "explanation": "{ \"command_id\": \"f26213fc\", \"drone_id\": \"c5d9ee19\", \"command\": \"land\", \"status\": \"success\", \"message\": \"Drone landed successfully (battery: -0.0%/-0mAh, remaining: 96.7%/88mAh)\", \"timestamp\": 1789833066.359286 }",
+          "action_input": "{\"drone_id\": \"c5d9ee19\"}",
+          "latency_ms": 45,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 45,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 34,
+          "name": "land",
+          "explanation": "{ \"command_id\": \"9d6f8182\", \"drone_id\": \"287644e6\", \"command\": \"land\", \"status\": \"success\", \"message\": \"Drone landed successfully (battery: -0.0%/-0mAh, remaining: 97.0%/75mAh)\", \"timestamp\": 1789833066.3562 }",
+          "action_input": "{\"drone_id\": \"287644e6\"}",
+          "latency_ms": 43,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 43,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 35,
+          "name": "land",
+          "explanation": "{ \"command_id\": \"3e144fc7\", \"drone_id\": \"1a663fd4\", \"command\": \"land\", \"status\": \"success\", \"message\": \"Drone landed successfully (battery: -0.0%/-0mAh, remaining: 99.5%/77mAh)\", \"timestamp\": 1789833066.360767 }",
+          "action_input": "{\"drone_id\": \"1a663fd4\"}",
+          "latency_ms": 43,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 43,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 36,
+          "name": "land",
+          "explanation": "{ \"command_id\": \"2136d793\", \"drone_id\": \"5c276319\", \"command\": \"land\", \"status\": \"success\", \"message\": \"Drone landed successfully (battery: -0.0%/-0mAh, remaining: 99.2%/95mAh)\", \"timestamp\": 1789833066.3577652 }",
+          "action_input": "{\"drone_id\": \"5c276319\"}",
+          "latency_ms": 46,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 46,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 37,
+          "name": "land",
+          "explanation": "{ \"command_id\": \"b62879bb\", \"drone_id\": \"138b06b0\", \"command\": \"land\", \"status\": \"success\", \"message\": \"Drone landed successfully (battery: -0.0%/-0mAh, remaining: 99.5%/74mAh)\", \"timestamp\": 1789833066.3638048 }",
+          "action_input": "{\"drone_id\": \"138b06b0\"}",
+          "latency_ms": 44,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 44,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 38,
+          "name": "land",
+          "explanation": "{ \"command_id\": \"5e7e8067\", \"drone_id\": \"b4c4245a\", \"command\": \"land\", \"status\": \"success\", \"message\": \"Drone landed successfully (battery: -0.0%/-0mAh, remaining: 95.8%/79mAh)\", \"timestamp\": 1789833066.362237 }",
+          "action_input": "{\"drone_id\": \"b4c4245a\"}",
+          "latency_ms": 46,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 46,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 39,
+          "name": "final_answer",
+          "explanation": "All drones landed safely. Here's the mission summary: --- ## Coverage Mission Complete ✅ ### **Polygon Target 1** (`87137842`) — 192m × 192m rectangle | Drone | Waypoints | Path | |-------|-----------|------| | Drone 1 | 4 | y=475.79 → 495.79 serpentine | | Dr...",
+          "latency_ms": 1,
+          "latency_source": "individual",
+          "decision_latency_ms": 1,
+          "tool_latency_ms": 0,
+          "latency_scope": "final_response"
+        }
+      ],
+      "agent_job_id": "0996d80c-a595-41e1-a0b4-708497906a4f",
+      "agent_token_usage": {
+        "prompt_tokens": 242124,
+        "completion_tokens": 5901,
+        "total_tokens": 248025,
+        "llm_calls": 9
+      }
+    },
+    {
+      "session_id": "1d873088",
+      "session_name": "Area Search Extreme 3",
+      "task_id": "7bb5e747",
+      "task_name": "Area Search Task Completion",
+      "status": "passed",
+      "timestamp": "2026-09-19T23:52:44.990621",
+      "error": null,
+      "statistics": {
+        "total_checks_apis": 1,
+        "passed_checks_apis": 1,
+        "failed_checks_apis": 0,
+        "pass_rate": 1.0
+      },
+      "details": [
+        {
+          "type": "group",
+          "logic": "AND",
+          "depth": 0,
+          "count": 1
+        },
+        {
+          "type": "leaf",
+          "endpoint": "/check/task_progress",
+          "parameters": {
+            "expected_progress": 0.95
+          },
+          "expect": true,
+          "actual": true,
+          "result": true,
+          "response": {
+            "result": true,
+            "value": 0.96,
+            "session_id": "1d873088",
+            "expected_progress": 0.95,
+            "task_type": "area_search",
+            "progress_percentage": 96,
+            "is_completed": false
+          },
+          "depth": 1
+        }
+      ],
+      "agent_latency_ms": 75449,
+      "agent_step_count": 19,
+      "agent_avg_step_latency_ms": 3874.8,
+      "agent_step_latency_source": "individual",
+      "agent_steps": [
+        {
+          "step": 1,
+          "name": "list_drones",
+          "explanation": "[ { \"id\": \"b4a10562\", \"name\": \"Drone 1\", \"status\": \"idle\", \"position\": { \"x\": 1771.181479127345, \"y\": 1281.0, \"z\": 0.0 }, \"battery_level\": 100.0, \"task_radius\": 20.0, \"perceived_radius\": 50.0 }, { \"id\": \"1668a821\", \"name\": \"Drone 2\", \"status\": \"idle\", \"positio...",
+          "latency_ms": 3968,
+          "latency_source": "individual",
+          "decision_latency_ms": 3953,
+          "tool_latency_ms": 15,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 2,
+          "name": "get_weather",
+          "explanation": "{ \"id\": \"0b79d1b8\", \"name\": \"Area Search Extreme 3 Environment\", \"weather\": \"fog\", \"temperature\": 30.71294512428165, \"humidity\": 44.0, \"pressure\": 1022.3, \"wind_speed\": 1.457715057833467, \"wind_direction\": \"south\", \"visibility\": 10226.9, \"created_at\": 17756659...",
+          "latency_ms": 15,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 15,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 3,
+          "name": "sense_nearby_entities",
+          "explanation": "{ \"sensed_drone_ids\": [ \"b4a10562\", \"1668a821\", \"701fbfca\", \"fead19a9\", \"9fb5047d\", \"0c20a2c0\", \"8edd7b6a\", \"dfd0b26f\", \"2948b916\", \"46d422ce\", \"9fb8ffe0\", \"1d136d4b\", \"24ee4266\", \"af654c5e\", \"5f38e192\", \"e5e61c63\", \"aca345eb\", \"59972cbb\", \"4b8e12f8\", \"0d5b7c5...",
+          "action_input": "{\"detail\": \"full\"}",
+          "latency_ms": 4651,
+          "latency_source": "individual",
+          "decision_latency_ms": 4552,
+          "tool_latency_ms": 99,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 4,
+          "name": "take_off",
+          "explanation": "{ \"command_id\": \"ab0b3a68\", \"drone_id\": \"9fb5047d\", \"command\": \"take_off\", \"status\": \"success\", \"message\": \"Drone taking off to altitude 15.0m (battery: -0.5%/-0mAh, remaining: 99.5%/79mAh)\", \"timestamp\": 1789833124.404874 }",
+          "action_input": "{\"drone_id\": \"9fb5047d\", \"altitude\": 15.0}",
+          "latency_ms": 26270,
+          "latency_source": "individual",
+          "decision_latency_ms": 26243,
+          "tool_latency_ms": 27,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 5,
+          "name": "take_off",
+          "explanation": "{ \"command_id\": \"2844994f\", \"drone_id\": \"46d422ce\", \"command\": \"take_off\", \"status\": \"success\", \"message\": \"Drone taking off to altitude 15.0m (battery: -0.5%/-0mAh, remaining: 99.5%/75mAh)\", \"timestamp\": 1789833124.4129841 }",
+          "action_input": "{\"drone_id\": \"46d422ce\", \"altitude\": 15.0}",
+          "latency_ms": 38,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 38,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 6,
+          "name": "take_off",
+          "explanation": "{ \"command_id\": \"8af01e29\", \"drone_id\": \"b4a10562\", \"command\": \"take_off\", \"status\": \"success\", \"message\": \"Drone taking off to altitude 15.0m (battery: -0.5%/-0mAh, remaining: 99.5%/70mAh)\", \"timestamp\": 1789833124.4196181 }",
+          "action_input": "{\"drone_id\": \"b4a10562\", \"altitude\": 15.0}",
+          "latency_ms": 38,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 38,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 7,
+          "name": "take_off",
+          "explanation": "{ \"command_id\": \"a26ae9e6\", \"drone_id\": \"9fb8ffe0\", \"command\": \"take_off\", \"status\": \"success\", \"message\": \"Drone taking off to altitude 15.0m (battery: -0.5%/-0mAh, remaining: 99.5%/96mAh)\", \"timestamp\": 1789833124.42435 }",
+          "action_input": "{\"drone_id\": \"9fb8ffe0\", \"altitude\": 15.0}",
+          "latency_ms": 39,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 39,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 8,
+          "name": "generate_coverage_path",
+          "explanation": "{ \"coverage_plan_id\": \"coverage-1cab77153fdb4227b3f72abb524b5d60\", \"target\": { \"id\": \"26cdc64b\", \"name\": \"Polygon Target 4\", \"type\": \"polygon\" }, \"task_radius\": 20.0, \"point_spacing\": 20.0, \"drone_assignments\": [ { \"drone_id\": \"9fb5047d\", \"first_waypoint\": { \"...",
+          "action_input": "{\"target_id\": \"26cdc64b\", \"drone_ids\": [\"9fb5047d\", \"46d422ce\", \"b4a10562\", \"9fb8ffe0\"]}",
+          "latency_ms": 4465,
+          "latency_source": "individual",
+          "decision_latency_ms": 4219,
+          "tool_latency_ms": 246,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 9,
+          "name": "move_along_path",
+          "explanation": "{ \"status\": \"success\", \"message\": \"Drone completed path with 6 waypoints (total distance: 512.00m, battery: -2.9%/-2mAh, remaining: 96.6%/77mAh) - Reached target(s): Polygon Target 4, Polygon Target 6\", \"command_id\": \"386e7016\", \"drone_id\": \"9fb5047d\", \"comman...",
+          "action_input": "{\"drone_id\": \"9fb5047d\", \"coverage_plan_id\": \"coverage-1cab77153fdb4227b3f72abb524b5d60\"}",
+          "latency_ms": 8330,
+          "latency_source": "individual",
+          "decision_latency_ms": 8267,
+          "tool_latency_ms": 63,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 10,
+          "name": "move_along_path",
+          "explanation": "{ \"status\": \"success\", \"message\": \"Drone completed path with 5 waypoints (total distance: 394.68m, battery: -2.2%/-2mAh, remaining: 97.3%/74mAh) - Reached target(s): Polygon Target 4, Polygon Target 6\", \"command_id\": \"5459f861\", \"drone_id\": \"46d422ce\", \"comman...",
+          "action_input": "{\"drone_id\": \"46d422ce\", \"coverage_plan_id\": \"coverage-1cab77153fdb4227b3f72abb524b5d60\"}",
+          "latency_ms": 131,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 131,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 11,
+          "name": "move_along_path",
+          "explanation": "{ \"status\": \"success\", \"message\": \"Drone completed path with 5 waypoints (total distance: 428.44m, battery: -2.4%/-2mAh, remaining: 97.1%/69mAh) - Reached target(s): Circle Target 1, Polygon Target 4, Polygon Target 6\", \"command_id\": \"3ce2425e\", \"drone_id\": \"b...",
+          "action_input": "{\"drone_id\": \"b4a10562\", \"coverage_plan_id\": \"coverage-1cab77153fdb4227b3f72abb524b5d60\"}",
+          "latency_ms": 132,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 132,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 12,
+          "name": "move_along_path",
+          "explanation": "{ \"status\": \"success\", \"message\": \"Drone completed path with 5 waypoints (total distance: 409.10m, battery: -2.3%/-2mAh, remaining: 97.2%/94mAh) - Reached target(s): Circle Target 1, Polygon Target 4, Polygon Target 6\", \"command_id\": \"7a0ae073\", \"drone_id\": \"9...",
+          "action_input": "{\"drone_id\": \"9fb8ffe0\", \"coverage_plan_id\": \"coverage-1cab77153fdb4227b3f72abb524b5d60\"}",
+          "latency_ms": 132,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 132,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 13,
+          "name": "sense_nearby_entities",
+          "explanation": "{ \"sensed_drone_ids\": [ \"9fb5047d\", \"46d422ce\", \"b4a10562\", \"9fb8ffe0\" ], \"per_drone\": { \"9fb5047d\": { \"drone_id\": null, \"counts\": { \"targets\": 1, \"obstacles\": 2, \"drones\": 0 }, \"targets\": [ { \"id\": \"26cdc64b\", \"name\": \"Polygon Target 4\", \"type\": \"polygon\", \"p...",
+          "action_input": "{\"drone_ids\": [\"9fb5047d\", \"46d422ce\", \"b4a10562\", \"9fb8ffe0\"], \"detail\": \"summary\"}",
+          "latency_ms": 6152,
+          "latency_source": "individual",
+          "decision_latency_ms": 6115,
+          "tool_latency_ms": 37,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 14,
+          "name": "get_target_info",
+          "explanation": "{ \"id\": \"26cdc64b\", \"name\": \"Polygon Target 4\", \"type\": \"polygon\", \"position\": { \"x\": 1608.0, \"y\": 1357.0, \"z\": 0.0 }, \"description\": \"\", \"radius\": 1.0, \"created_at\": 1775665986.690933, \"last_updated\": 1789833124.412692, \"velocity\": null, \"moving_path\": null,...",
+          "action_input": "{\"target_id\": \"26cdc64b\"}",
+          "latency_ms": 3563,
+          "latency_source": "individual",
+          "decision_latency_ms": 3345,
+          "tool_latency_ms": 218,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 15,
+          "name": "land",
+          "explanation": "{ \"command_id\": \"0853ced2\", \"drone_id\": \"9fb5047d\", \"command\": \"land\", \"status\": \"success\", \"message\": \"Drone landed successfully (battery: -0.0%/-0mAh, remaining: 96.6%/77mAh)\", \"timestamp\": 1789833153.9734888 }",
+          "action_input": "{\"drone_id\": \"9fb5047d\"}",
+          "latency_ms": 6982,
+          "latency_source": "individual",
+          "decision_latency_ms": 6948,
+          "tool_latency_ms": 34,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 16,
+          "name": "land",
+          "explanation": "{ \"command_id\": \"77b662da\", \"drone_id\": \"46d422ce\", \"command\": \"land\", \"status\": \"success\", \"message\": \"Drone landed successfully (battery: -0.0%/-0mAh, remaining: 97.3%/74mAh)\", \"timestamp\": 1789833153.9798331 }",
+          "action_input": "{\"drone_id\": \"46d422ce\"}",
+          "latency_ms": 38,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 38,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 17,
+          "name": "land",
+          "explanation": "{ \"command_id\": \"d8222ab2\", \"drone_id\": \"b4a10562\", \"command\": \"land\", \"status\": \"success\", \"message\": \"Drone landed successfully (battery: -0.0%/-0mAh, remaining: 97.1%/69mAh)\", \"timestamp\": 1789833153.985138 }",
+          "action_input": "{\"drone_id\": \"b4a10562\"}",
+          "latency_ms": 39,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 39,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 18,
+          "name": "land",
+          "explanation": "{ \"command_id\": \"8c72dfe4\", \"drone_id\": \"9fb8ffe0\", \"command\": \"land\", \"status\": \"success\", \"message\": \"Drone landed successfully (battery: -0.0%/-0mAh, remaining: 97.2%/94mAh)\", \"timestamp\": 1789833153.99048 }",
+          "action_input": "{\"drone_id\": \"9fb8ffe0\"}",
+          "latency_ms": 40,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 40,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 19,
+          "name": "final_answer",
+          "explanation": "Mission complete. Here's the summary: | Phase | Action | |-------|--------| | **Assessment** | 10 area targets discovered; 9 already reached, only **Polygon Target 4** unreached | | **Deployment** | Took off Drones 5, 10, 1, and 11 — all positioned near the ta...",
+          "latency_ms": 8599,
+          "latency_source": "individual",
+          "decision_latency_ms": 8599,
+          "tool_latency_ms": 0,
+          "latency_scope": "final_response"
+        }
+      ],
+      "agent_job_id": "19666fb1-5589-48c4-ba40-4b0903fc8eb5",
+      "agent_token_usage": {
+        "prompt_tokens": 273848,
+        "completion_tokens": 3015,
+        "total_tokens": 276863,
+        "llm_calls": 9
+      }
+    },
+    {
+      "session_id": "e0b4787a",
+      "session_name": "Area Assignment and Patrol Easy 5",
+      "task_id": "82d7e45c",
+      "task_name": "Target Area Complete Coverage and Photography Mission 2",
+      "status": "passed",
+      "timestamp": "2026-09-19T23:53:56.044614",
+      "error": null,
+      "statistics": {
+        "total_checks_apis": 3,
+        "passed_checks_apis": 3,
+        "failed_checks_apis": 0,
+        "pass_rate": 1.0
+      },
+      "details": [
+        {
+          "type": "group",
+          "logic": "AND",
+          "depth": 0,
+          "count": 2
+        },
+        {
+          "type": "group",
+          "logic": "OR",
+          "depth": 1,
+          "count": 2
+        },
+        {
+          "type": "leaf",
+          "endpoint": "/check/target_is_fully_searched",
+          "parameters": {
+            "target_id": "914b7787",
+            "coverage_threshold": 0.99
+          },
+          "expect": true,
+          "actual": true,
+          "result": true,
+          "response": {
+            "result": true,
+            "value": 1.0,
+            "session_id": "e0b4787a",
+            "target_id": "914b7787",
+            "coverage_percentage": 100.0,
+            "coverage_threshold": 0.99
+          },
+          "depth": 2
+        },
+        {
+          "type": "leaf",
+          "endpoint": "/check/target_searched_area_percentage",
+          "parameters": {
+            "target_id": "914b7787",
+            "expected_percentage": 0.99
+          },
+          "expect": true,
+          "actual": true,
+          "result": true,
+          "response": {
+            "result": true,
+            "value": 1.0,
+            "session_id": "e0b4787a",
+            "target_id": "914b7787",
+            "expected_percentage": 0.99,
+            "coverage_percentage": 100.0
+          },
+          "depth": 2
+        },
+        {
+          "type": "leaf",
+          "endpoint": "/check/drone_has_taken_photo",
+          "parameters": {
+            "drone_id": "5338122b",
+            "min_count": 3
+          },
+          "expect": true,
+          "actual": true,
+          "result": true,
+          "response": {
+            "result": true,
+            "value": 3,
+            "drone_id": "5338122b",
+            "min_count": 3,
+            "photo_ids": [
+              "f069b7e4",
+              "5eb8a306",
+              "2a910c22"
+            ],
+            "first_photo_time": 1789833208.640197,
+            "last_photo_time": 1789833226.2535381,
+            "positions": [
+              {
+                "x": 463.98,
+                "y": 558.99,
+                "z": 22.0
+              },
+              {
+                "x": 463.98,
+                "y": 558.99,
+                "z": 22.0
+              },
+              {
+                "x": 463.98,
+                "y": 558.99,
+                "z": 22.0
+              }
+            ]
+          },
+          "depth": 1
+        }
+      ],
+      "agent_latency_ms": 65409,
+      "agent_step_count": 13,
+      "agent_avg_step_latency_ms": 4290.9,
+      "agent_step_latency_source": "individual",
+      "agent_steps": [
+        {
+          "step": 1,
+          "name": "get_weather",
+          "explanation": "{ \"id\": \"ca6547b8\", \"name\": \"Area Assignment and Patrol Easy 5 Environment\", \"weather\": \"rain\", \"temperature\": 21.249434070258935, \"humidity\": 38.6, \"pressure\": 1018.1, \"wind_speed\": 4.009230498591638, \"wind_direction\": \"east\", \"visibility\": 9210.3, \"created_a...",
+          "latency_ms": 4263,
+          "latency_source": "individual",
+          "decision_latency_ms": 4250,
+          "tool_latency_ms": 13,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 2,
+          "name": "list_drones",
+          "explanation": "[ { \"id\": \"e6d76c57\", \"name\": \"Drone 1\", \"status\": \"idle\", \"position\": { \"x\": 727.9055628877775, \"y\": 471.0, \"z\": 0.0 }, \"battery_level\": 100.0, \"task_radius\": 20.0, \"perceived_radius\": 50.0 }, { \"id\": \"5338122b\", \"name\": \"Drone 2\", \"status\": \"idle\", \"position...",
+          "latency_ms": 13,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 13,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 3,
+          "name": "sense_nearby_entities",
+          "explanation": "{ \"sensed_drone_ids\": [ \"5338122b\" ], \"per_drone\": { \"5338122b\": { \"drones\": [ { \"id\": \"0cbd5948\", \"name\": \"Drone 4\", \"model\": \"Model-A\", \"status\": \"idle\", \"position\": { \"x\": 529.98, \"y\": 512.99, \"z\": 0.0 }, \"heading\": 268.82070538664794, \"speed\": 0.0, \"batter...",
+          "action_input": "{\"drone_ids\": [\"5338122b\"], \"detail\": \"full\"}",
+          "latency_ms": 6386,
+          "latency_source": "individual",
+          "decision_latency_ms": 6376,
+          "tool_latency_ms": 10,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 4,
+          "name": "take_off",
+          "explanation": "{ \"command_id\": \"332f2a02\", \"drone_id\": \"5338122b\", \"command\": \"take_off\", \"status\": \"success\", \"message\": \"Drone taking off to altitude 22.0m (battery: -0.5%/-0mAh, remaining: 99.5%/67mAh)\", \"timestamp\": 1789833187.758216 }",
+          "action_input": "{\"drone_id\": \"5338122b\", \"altitude\": 22.0}",
+          "latency_ms": 6573,
+          "latency_source": "individual",
+          "decision_latency_ms": 6547,
+          "tool_latency_ms": 26,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 5,
+          "name": "get_target_info",
+          "explanation": "{ \"id\": \"914b7787\", \"name\": \"Polygon Target 2\", \"type\": \"polygon\", \"position\": { \"x\": 497.0, \"y\": 526.0, \"z\": 0.0 }, \"description\": \"\", \"radius\": 1.0, \"created_at\": 1775666086.83743, \"last_updated\": 1789831728.126697, \"velocity\": null, \"moving_path\": null, \"mo...",
+          "action_input": "{\"target_id\": \"914b7787\"}",
+          "latency_ms": 27,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 27,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 6,
+          "name": "generate_coverage_path",
+          "explanation": "{ \"coverage_plan_id\": \"coverage-7f38f5b5421648afb3fad4d810655eb2\", \"target\": { \"id\": \"914b7787\", \"name\": \"Polygon Target 2\", \"type\": \"polygon\" }, \"task_radius\": 20.0, \"point_spacing\": 20.0, \"drone_assignments\": [ { \"drone_id\": \"5338122b\", \"first_waypoint\": { \"...",
+          "action_input": "{\"target_id\": \"914b7787\", \"drone_ids\": [\"5338122b\"]}",
+          "latency_ms": 5426,
+          "latency_source": "individual",
+          "decision_latency_ms": 5398,
+          "tool_latency_ms": 28,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 7,
+          "name": "move_along_path_and_sense",
+          "explanation": "{ \"drone_id\": \"5338122b\", \"move_result\": { \"status\": \"success\", \"message\": \"Drone completed path with 10 waypoints (total distance: 396.00m, battery: -2.7%/-2mAh, remaining: 96.8%/66mAh) - Reached target(s): Polygon Target 2\", \"command_id\": \"3d23c220\", \"drone_...",
+          "action_input": "{\"drone_id\": \"5338122b\", \"coverage_plan_id\": \"coverage-7f38f5b5421648afb3fad4d810655eb2\", \"allow_partial_move\": false, \"detail\": \"summary\"}",
+          "latency_ms": 7728,
+          "latency_source": "individual",
+          "decision_latency_ms": 7694,
+          "tool_latency_ms": 34,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 8,
+          "name": "get_drone_status",
+          "explanation": "{ \"id\": \"5338122b\", \"name\": \"Drone 2\", \"model\": \"Model-X2\", \"status\": \"hovering\", \"position\": { \"x\": 463.98, \"y\": 558.99, \"z\": 22.0 }, \"heading\": 315.0, \"speed\": 0.0, \"battery_level\": 96.832979501, \"max_speed\": 35.0, \"max_altitude\": 342.0, \"battery_capacity\":...",
+          "action_input": "{\"drone_id\": \"5338122b\"}",
+          "latency_ms": 7715,
+          "latency_source": "individual",
+          "decision_latency_ms": 7703,
+          "tool_latency_ms": 12,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 9,
+          "name": "take_photo",
+          "explanation": "{ \"command_id\": \"4ff36166\", \"drone_id\": \"5338122b\", \"command\": \"take_photo\", \"status\": \"success\", \"message\": \"Photo taken successfully. Photo ID: f069b7e4 (battery: -0.3%/-0mAh, remaining: 96.5%/65mAh)\", \"timestamp\": 1789833208.6402078 }",
+          "action_input": "{\"drone_id\": \"5338122b\"}",
+          "latency_ms": 13,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 13,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 10,
+          "name": "get_target_info",
+          "explanation": "{ \"id\": \"914b7787\", \"name\": \"Polygon Target 2\", \"type\": \"polygon\", \"position\": { \"x\": 497.0, \"y\": 526.0, \"z\": 0.0 }, \"description\": \"\", \"radius\": 1.0, \"created_at\": 1775666086.83743, \"last_updated\": 1789831728.126697, \"velocity\": null, \"moving_path\": null, \"mo...",
+          "action_input": "{\"target_id\": \"914b7787\"}",
+          "latency_ms": 5721,
+          "latency_source": "individual",
+          "decision_latency_ms": 5698,
+          "tool_latency_ms": 23,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 11,
+          "name": "take_photo",
+          "explanation": "{ \"command_id\": \"c62e43de\", \"drone_id\": \"5338122b\", \"command\": \"take_photo\", \"status\": \"success\", \"message\": \"Photo taken successfully. Photo ID: 5eb8a306 (battery: -0.3%/-0mAh, remaining: 96.2%/65mAh)\", \"timestamp\": 1789833214.36181 }",
+          "action_input": "{\"drone_id\": \"5338122b\"}",
+          "latency_ms": 23,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 23,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 12,
+          "name": "take_photo",
+          "explanation": "{ \"command_id\": \"012261a5\", \"drone_id\": \"5338122b\", \"command\": \"take_photo\", \"status\": \"success\", \"message\": \"Photo taken successfully. Photo ID: 2a910c22 (battery: -0.3%/-0mAh, remaining: 95.9%/65mAh)\", \"timestamp\": 1789833226.25355 }",
+          "action_input": "{\"drone_id\": \"5338122b\"}",
+          "latency_ms": 11893,
+          "latency_source": "individual",
+          "decision_latency_ms": 11883,
+          "tool_latency_ms": 10,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 13,
+          "name": "final_answer",
+          "explanation": "Mission complete. Here's the summary: --- ## ✅ Area Coverage Mission — Polygon Target 2 | Detail | Value | |---|---| | **Drone** | Drone 2 (`5338122b`) | | **Altitude** | 22.0m | | **Target** | Polygon Target 2 (`914b7787`) | | **Area** | 66m × 66m (4,356 m²)...",
+          "latency_ms": 1,
+          "latency_source": "individual",
+          "decision_latency_ms": 1,
+          "tool_latency_ms": 0,
+          "latency_scope": "final_response"
+        }
+      ],
+      "agent_job_id": "e1180b04-74bb-44c3-8002-e923891ca830",
+      "agent_token_usage": {
+        "prompt_tokens": 109750,
+        "completion_tokens": 2549,
+        "total_tokens": 112299,
+        "llm_calls": 9
+      }
+    },
+    {
+      "session_id": "e0b4787a",
+      "session_name": "Area Assignment and Patrol Easy 5",
+      "task_id": "4eff70e0",
+      "task_name": "Area Search Task Completion",
+      "status": "passed",
+      "timestamp": "2026-09-19T23:55:47.411023",
+      "error": null,
+      "statistics": {
+        "total_checks_apis": 1,
+        "passed_checks_apis": 1,
+        "failed_checks_apis": 0,
+        "pass_rate": 1.0
+      },
+      "details": [
+        {
+          "type": "group",
+          "logic": "AND",
+          "depth": 0,
+          "count": 1
+        },
+        {
+          "type": "leaf",
+          "endpoint": "/check/task_progress",
+          "parameters": {
+            "expected_progress": 0.95
+          },
+          "expect": true,
+          "actual": true,
+          "result": true,
+          "response": {
+            "result": true,
+            "value": 1.0,
+            "session_id": "e0b4787a",
+            "expected_progress": 0.95,
+            "task_type": "area_assignment_and_patrol",
+            "progress_percentage": 100,
+            "is_completed": true
+          },
+          "depth": 1
+        }
+      ],
+      "agent_latency_ms": 105670,
+      "agent_step_count": 24,
+      "agent_avg_step_latency_ms": 3875.0,
+      "agent_step_latency_source": "individual",
+      "agent_steps": [
+        {
+          "step": 1,
+          "name": "list_drones",
+          "explanation": "[ { \"id\": \"e6d76c57\", \"name\": \"Drone 1\", \"status\": \"idle\", \"position\": { \"x\": 727.9055628877775, \"y\": 471.0, \"z\": 0.0 }, \"battery_level\": 100.0, \"task_radius\": 20.0, \"perceived_radius\": 50.0 }, { \"id\": \"5338122b\", \"name\": \"Drone 2\", \"status\": \"idle\", \"position...",
+          "latency_ms": 4104,
+          "latency_source": "individual",
+          "decision_latency_ms": 4092,
+          "tool_latency_ms": 12,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 2,
+          "name": "get_weather",
+          "explanation": "{ \"id\": \"ca6547b8\", \"name\": \"Area Assignment and Patrol Easy 5 Environment\", \"weather\": \"rain\", \"temperature\": 17.34251730687048, \"humidity\": 38.6, \"pressure\": 1018.1, \"wind_speed\": 4.899367830981099, \"wind_direction\": \"northwest\", \"visibility\": 9210.3, \"creat...",
+          "latency_ms": 12,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 12,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 3,
+          "name": "sense_nearby_entities",
+          "explanation": "{ \"sensed_drone_ids\": [ \"e6d76c57\", \"5338122b\", \"b8fc5a64\", \"0cbd5948\", \"131a93b8\" ], \"per_drone\": { \"e6d76c57\": { \"drones\": [ { \"id\": \"131a93b8\", \"name\": \"Drone 5\", \"model\": \"Model-X2\", \"status\": \"idle\", \"position\": { \"x\": 738.0666553010924, \"y\": 451.0, \"z\":...",
+          "action_input": "{\"detail\": \"full\"}",
+          "latency_ms": 5335,
+          "latency_source": "individual",
+          "decision_latency_ms": 5307,
+          "tool_latency_ms": 28,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 4,
+          "name": "take_off",
+          "explanation": "{ \"command_id\": \"afb8649f\", \"drone_id\": \"e6d76c57\", \"command\": \"take_off\", \"status\": \"success\", \"message\": \"Drone taking off to altitude 15.0m (battery: -0.5%/-0mAh, remaining: 99.5%/79mAh)\", \"timestamp\": 1789833268.652052 }",
+          "action_input": "{\"drone_id\": \"e6d76c57\", \"altitude\": 15.0}",
+          "latency_ms": 17600,
+          "latency_source": "individual",
+          "decision_latency_ms": 17583,
+          "tool_latency_ms": 17,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 5,
+          "name": "take_off",
+          "explanation": "{ \"command_id\": \"d03f5185\", \"drone_id\": \"5338122b\", \"command\": \"take_off\", \"status\": \"success\", \"message\": \"Drone taking off to altitude 15.0m (battery: -0.5%/-0mAh, remaining: 99.5%/67mAh)\", \"timestamp\": 1789833268.6551628 }",
+          "action_input": "{\"drone_id\": \"5338122b\", \"altitude\": 15.0}",
+          "latency_ms": 18,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 18,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 6,
+          "name": "take_off",
+          "explanation": "{ \"command_id\": \"ced921fa\", \"drone_id\": \"b8fc5a64\", \"command\": \"take_off\", \"status\": \"success\", \"message\": \"Drone taking off to altitude 15.0m (battery: -0.5%/-0mAh, remaining: 99.5%/97mAh)\", \"timestamp\": 1789833268.657092 }",
+          "action_input": "{\"drone_id\": \"b8fc5a64\", \"altitude\": 15.0}",
+          "latency_ms": 21,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 21,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 7,
+          "name": "take_off",
+          "explanation": "{ \"command_id\": \"c0b2e4a4\", \"drone_id\": \"0cbd5948\", \"command\": \"take_off\", \"status\": \"success\", \"message\": \"Drone taking off to altitude 15.0m (battery: -0.5%/-0mAh, remaining: 99.5%/74mAh)\", \"timestamp\": 1789833268.658298 }",
+          "action_input": "{\"drone_id\": \"0cbd5948\", \"altitude\": 15.0}",
+          "latency_ms": 21,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 21,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 8,
+          "name": "take_off",
+          "explanation": "{ \"command_id\": \"9421a7c4\", \"drone_id\": \"131a93b8\", \"command\": \"take_off\", \"status\": \"success\", \"message\": \"Drone taking off to altitude 15.0m (battery: -0.5%/-0mAh, remaining: 99.5%/83mAh)\", \"timestamp\": 1789833268.65889 }",
+          "action_input": "{\"drone_id\": \"131a93b8\", \"altitude\": 15.0}",
+          "latency_ms": 22,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 22,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 9,
+          "name": "generate_coverage_path",
+          "explanation": "{ \"coverage_plan_id\": \"coverage-f0a514cb04ff44de9fceb999df1c45ce\", \"target\": { \"id\": \"914b7787\", \"name\": \"Polygon Target 2\", \"type\": \"polygon\" }, \"task_radius\": 20.0, \"point_spacing\": 20.0, \"drone_assignments\": [ { \"drone_id\": \"5338122b\", \"first_waypoint\": { \"...",
+          "action_input": "{\"target_id\": \"914b7787\", \"drone_ids\": [\"5338122b\", \"0cbd5948\"]}",
+          "latency_ms": 6344,
+          "latency_source": "individual",
+          "decision_latency_ms": 6307,
+          "tool_latency_ms": 37,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 10,
+          "name": "generate_coverage_path",
+          "explanation": "{ \"coverage_plan_id\": \"coverage-71a84473d2d44e9e8474b4947993762f\", \"target\": { \"id\": \"8568b114\", \"name\": \"Circle Target 1\", \"type\": \"circle\" }, \"task_radius\": 20.0, \"point_spacing\": 20.0, \"drone_assignments\": [ { \"drone_id\": \"e6d76c57\", \"first_waypoint\": { \"x\"...",
+          "action_input": "{\"target_id\": \"8568b114\", \"drone_ids\": [\"e6d76c57\", \"b8fc5a64\", \"131a93b8\"]}",
+          "latency_ms": 37,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 37,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 11,
+          "name": "move_along_path",
+          "explanation": "{ \"status\": \"success\", \"message\": \"Drone completed path with 5 waypoints (total distance: 228.38m, battery: -1.6%/-1mAh, remaining: 97.9%/78mAh) - Reached target(s): Circle Target 1\", \"command_id\": \"94e98c05\", \"drone_id\": \"e6d76c57\", \"command\": \"move_along_pat...",
+          "action_input": "{\"drone_id\": \"e6d76c57\", \"coverage_plan_id\": \"coverage-71a84473d2d44e9e8474b4947993762f\", \"allow_partial_move\": false}",
+          "latency_ms": 15094,
+          "latency_source": "individual",
+          "decision_latency_ms": 15045,
+          "tool_latency_ms": 49,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 12,
+          "name": "move_along_path",
+          "explanation": "{ \"status\": \"success\", \"message\": \"Drone completed path with 2 waypoints (total distance: 107.27m, battery: -0.7%/-1mAh, remaining: 98.8%/96mAh) - Reached target(s): Circle Target 1\", \"command_id\": \"4d364505\", \"drone_id\": \"b8fc5a64\", \"command\": \"move_along_pat...",
+          "action_input": "{\"drone_id\": \"b8fc5a64\", \"coverage_plan_id\": \"coverage-71a84473d2d44e9e8474b4947993762f\", \"allow_partial_move\": false}",
+          "latency_ms": 58,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 58,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 13,
+          "name": "move_along_path",
+          "explanation": "{ \"status\": \"success\", \"message\": \"Drone completed path with 4 waypoints (total distance: 210.49m, battery: -1.4%/-1mAh, remaining: 98.1%/82mAh) - Reached target(s): Circle Target 1\", \"command_id\": \"a1561513\", \"drone_id\": \"131a93b8\", \"command\": \"move_along_pat...",
+          "action_input": "{\"drone_id\": \"131a93b8\", \"coverage_plan_id\": \"coverage-71a84473d2d44e9e8474b4947993762f\", \"allow_partial_move\": false}",
+          "latency_ms": 63,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 63,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 14,
+          "name": "move_along_path",
+          "explanation": "{ \"status\": \"success\", \"message\": \"Drone completed path with 6 waypoints (total distance: 224.00m, battery: -1.5%/-1mAh, remaining: 98.0%/66mAh) - Reached target(s): Polygon Target 2\", \"command_id\": \"f3594db8\", \"drone_id\": \"5338122b\", \"command\": \"move_along_pa...",
+          "action_input": "{\"drone_id\": \"5338122b\", \"coverage_plan_id\": \"coverage-f0a514cb04ff44de9fceb999df1c45ce\", \"allow_partial_move\": false}",
+          "latency_ms": 67,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 67,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 15,
+          "name": "move_along_path",
+          "explanation": "{ \"status\": \"success\", \"message\": \"Drone completed path with 4 waypoints (total distance: 152.00m, battery: -1.0%/-1mAh, remaining: 98.5%/73mAh) - Reached target(s): Polygon Target 2\", \"command_id\": \"9d4aae00\", \"drone_id\": \"0cbd5948\", \"command\": \"move_along_pa...",
+          "action_input": "{\"drone_id\": \"0cbd5948\", \"coverage_plan_id\": \"coverage-f0a514cb04ff44de9fceb999df1c45ce\", \"allow_partial_move\": false}",
+          "latency_ms": 68,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 68,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 16,
+          "name": "sense_nearby_entities",
+          "explanation": "{ \"sensed_drone_ids\": [ \"e6d76c57\", \"5338122b\", \"b8fc5a64\", \"0cbd5948\", \"131a93b8\" ], \"per_drone\": { \"e6d76c57\": { \"drone_id\": null, \"counts\": { \"targets\": 1, \"obstacles\": 0, \"drones\": 2 }, \"targets\": [ { \"id\": \"8568b114\", \"name\": \"Circle Target 1\", \"type\": \"c...",
+          "action_input": "{\"detail\": \"summary\"}",
+          "latency_ms": 5785,
+          "latency_source": "individual",
+          "decision_latency_ms": 5759,
+          "tool_latency_ms": 26,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 17,
+          "name": "get_target_info",
+          "explanation": "{ \"id\": \"8568b114\", \"name\": \"Circle Target 1\", \"type\": \"circle\", \"position\": { \"x\": 780.0, \"y\": 485.0, \"z\": 0.0 }, \"description\": \"\", \"radius\": 54, \"created_at\": 1775666086.837326, \"last_updated\": 1775666086.837326, \"velocity\": null, \"moving_path\": null, \"movi...",
+          "action_input": "{\"target_id\": \"8568b114\"}",
+          "latency_ms": 7993,
+          "latency_source": "individual",
+          "decision_latency_ms": 7962,
+          "tool_latency_ms": 31,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 18,
+          "name": "get_target_info",
+          "explanation": "{ \"id\": \"914b7787\", \"name\": \"Polygon Target 2\", \"type\": \"polygon\", \"position\": { \"x\": 497.0, \"y\": 526.0, \"z\": 0.0 }, \"description\": \"\", \"radius\": 1.0, \"created_at\": 1775666086.83743, \"last_updated\": 1789831728.126697, \"velocity\": null, \"moving_path\": null, \"mo...",
+          "action_input": "{\"target_id\": \"914b7787\"}",
+          "latency_ms": 31,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 31,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 19,
+          "name": "get_drone_status",
+          "explanation": "{ \"id\": \"5338122b\", \"name\": \"Drone 2\", \"model\": \"Model-X2\", \"status\": \"hovering\", \"position\": { \"x\": 529.98, \"y\": 532.99, \"z\": 15.0 }, \"heading\": 111.5014343240479, \"speed\": 0.0, \"battery_level\": 98.03562254, \"max_speed\": 35.0, \"max_altitude\": 342.0, \"battery_...",
+          "action_input": "{\"drone_id\": \"5338122b\"}",
+          "latency_ms": 9814,
+          "latency_source": "individual",
+          "decision_latency_ms": 9801,
+          "tool_latency_ms": 13,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 20,
+          "name": "get_drone_status",
+          "explanation": "{ \"id\": \"e6d76c57\", \"name\": \"Drone 1\", \"model\": \"Model-X4\", \"status\": \"hovering\", \"position\": { \"x\": 738.0666553010924, \"y\": 519.0, \"z\": 15.0 }, \"heading\": 11.952456042626546, \"speed\": 0.0, \"battery_level\": 97.94013854438242, \"max_speed\": 33.0, \"max_altitude\":...",
+          "action_input": "{\"drone_id\": \"e6d76c57\"}",
+          "latency_ms": 12,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 12,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 21,
+          "name": "navigate_to_and_sense",
+          "explanation": "{ \"drone_id\": \"e6d76c57\", \"navigation_result\": { \"success\": false, \"message\": \"Direct movement did not reach the requested coordinate\", \"drone_id\": \"e6d76c57\", \"final_position\": { \"x\": 600.0, \"y\": 300.0, \"z\": 15.0 }, \"distance_remaining\": 0.0, \"movement_strate...",
+          "action_input": "{\"drone_id\": \"e6d76c57\", \"x\": 600.0, \"y\": 300.0, \"z\": 15.0}",
+          "latency_ms": 12984,
+          "latency_source": "individual",
+          "decision_latency_ms": 12945,
+          "tool_latency_ms": 39,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 22,
+          "name": "navigate_to_and_sense",
+          "explanation": "{ \"drone_id\": \"5338122b\", \"navigation_result\": { \"success\": false, \"message\": \"Direct movement did not reach the requested coordinate\", \"drone_id\": \"5338122b\", \"final_position\": { \"x\": 800.0, \"y\": 300.0, \"z\": 15.0 }, \"distance_remaining\": 0.0, \"movement_strate...",
+          "action_input": "{\"drone_id\": \"5338122b\", \"x\": 800.0, \"y\": 300.0, \"z\": 15.0}",
+          "latency_ms": 40,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 40,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 23,
+          "name": "sense_nearby_entities",
+          "explanation": "{ \"sensed_drone_ids\": [ \"e6d76c57\", \"5338122b\", \"b8fc5a64\", \"0cbd5948\", \"131a93b8\" ], \"per_drone\": { \"e6d76c57\": { \"drones\": [], \"targets\": [], \"obstacles\": [] }, \"5338122b\": { \"drones\": [], \"targets\": [], \"obstacles\": [] }, \"b8fc5a64\": { \"drones\": [ { \"id\": \"...",
+          "action_input": "{\"detail\": \"full\"}",
+          "latency_ms": 7475,
+          "latency_source": "individual",
+          "decision_latency_ms": 7446,
+          "tool_latency_ms": 29,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 24,
+          "name": "final_answer",
+          "explanation": "Mission complete. Here's the summary: --- ## Mission Summary **Session:** Area Assignment and Patrol Easy 5 Environment **Targets Discovered & Covered:** | Target | Type | Position | Size | Coverage Drones | |---|---|---|---|---| | Circle Target 1 | Circle | (...",
+          "latency_ms": 1,
+          "latency_source": "individual",
+          "decision_latency_ms": 1,
+          "tool_latency_ms": 0,
+          "latency_scope": "final_response"
+        }
+      ],
+      "agent_job_id": "facaa285-cc56-4929-a782-f189e09b3a1d",
+      "agent_token_usage": {
+        "prompt_tokens": 192546,
+        "completion_tokens": 4302,
+        "total_tokens": 196848,
+        "llm_calls": 11
+      }
+    },
+    {
+      "session_id": "790c144d",
+      "session_name": "Area Assignment and Patrol Intermediate 1",
+      "task_id": "64f78451",
+      "task_name": "Triple Drone Area Coverage Search 2",
+      "status": "passed",
+      "timestamp": "2026-09-19T23:56:58.076135",
+      "error": null,
+      "statistics": {
+        "total_checks_apis": 7,
+        "passed_checks_apis": 7,
+        "failed_checks_apis": 0,
+        "pass_rate": 1.0
+      },
+      "details": [
+        {
+          "type": "group",
+          "logic": "AND",
+          "depth": 0,
+          "count": 7
+        },
+        {
+          "type": "leaf",
+          "endpoint": "/check/drone_has_taken_off",
+          "parameters": {
+            "drone_id": "45c14e1d",
+            "min_altitude": 23.0,
+            "max_altitude": 23.0,
+            "tolerance": 1.0
+          },
+          "expect": true,
+          "actual": true,
+          "result": true,
+          "response": {
+            "result": true,
+            "value": 1,
+            "drone_id": "45c14e1d",
+            "takeoff_count": 1,
+            "last_takeoff_time": 1789833377.397067,
+            "max_altitude_reached": 23.0,
+            "min_altitude_threshold": 23.0,
+            "max_altitude_threshold": 23.0,
+            "tolerance": 1.0,
+            "matched_altitude_min": 22.0,
+            "matched_altitude_max": 24.0
+          },
+          "depth": 1
+        },
+        {
+          "type": "leaf",
+          "endpoint": "/check/drone_has_taken_off",
+          "parameters": {
+            "drone_id": "f4ea09ea",
+            "min_altitude": 23.0,
+            "max_altitude": 23.0,
+            "tolerance": 1.0
+          },
+          "expect": true,
+          "actual": true,
+          "result": true,
+          "response": {
+            "result": true,
+            "value": 1,
+            "drone_id": "f4ea09ea",
+            "takeoff_count": 1,
+            "last_takeoff_time": 1789833377.3981209,
+            "max_altitude_reached": 23.0,
+            "min_altitude_threshold": 23.0,
+            "max_altitude_threshold": 23.0,
+            "tolerance": 1.0,
+            "matched_altitude_min": 22.0,
+            "matched_altitude_max": 24.0
+          },
+          "depth": 1
+        },
+        {
+          "type": "leaf",
+          "endpoint": "/check/drone_has_taken_off",
+          "parameters": {
+            "drone_id": "e8ebba85",
+            "min_altitude": 23.0,
+            "max_altitude": 23.0,
+            "tolerance": 1.0
+          },
+          "expect": true,
+          "actual": true,
+          "result": true,
+          "response": {
+            "result": true,
+            "value": 1,
+            "drone_id": "e8ebba85",
+            "takeoff_count": 1,
+            "last_takeoff_time": 1789833377.393049,
+            "max_altitude_reached": 23.0,
+            "min_altitude_threshold": 23.0,
+            "max_altitude_threshold": 23.0,
+            "tolerance": 1.0,
+            "matched_altitude_min": 22.0,
+            "matched_altitude_max": 24.0
+          },
+          "depth": 1
+        },
+        {
+          "type": "leaf",
+          "endpoint": "/check/target_is_reached_by_drone",
+          "parameters": {
+            "target_id": "90e25798",
+            "drone_id": "45c14e1d"
+          },
+          "expect": true,
+          "actual": true,
+          "result": true,
+          "response": {
+            "result": true,
+            "value": 44,
+            "session_id": "790c144d",
+            "target_id": "90e25798",
+            "drone_id": "45c14e1d",
+            "since_timestamp": null
+          },
+          "depth": 1
+        },
+        {
+          "type": "leaf",
+          "endpoint": "/check/target_is_reached_by_drone",
+          "parameters": {
+            "target_id": "90e25798",
+            "drone_id": "f4ea09ea"
+          },
+          "expect": true,
+          "actual": true,
+          "result": true,
+          "response": {
+            "result": true,
+            "value": 44,
+            "session_id": "790c144d",
+            "target_id": "90e25798",
+            "drone_id": "f4ea09ea",
+            "since_timestamp": null
+          },
+          "depth": 1
+        },
+        {
+          "type": "leaf",
+          "endpoint": "/check/target_is_reached_by_drone",
+          "parameters": {
+            "target_id": "90e25798",
+            "drone_id": "e8ebba85"
+          },
+          "expect": true,
+          "actual": true,
+          "result": true,
+          "response": {
+            "result": true,
+            "value": 48,
+            "session_id": "790c144d",
+            "target_id": "90e25798",
+            "drone_id": "e8ebba85",
+            "since_timestamp": null
+          },
+          "depth": 1
+        },
+        {
+          "type": "leaf",
+          "endpoint": "/check/target_is_fully_searched",
+          "parameters": {
+            "target_id": "90e25798",
+            "coverage_threshold": 0.95
+          },
+          "expect": true,
+          "actual": true,
+          "result": true,
+          "response": {
+            "result": true,
+            "value": 1.0,
+            "session_id": "790c144d",
+            "target_id": "90e25798",
+            "coverage_percentage": 100.0,
+            "coverage_threshold": 0.95
+          },
+          "depth": 1
+        }
+      ],
+      "agent_latency_ms": 65417,
+      "agent_step_count": 11,
+      "agent_avg_step_latency_ms": 3638.3,
+      "agent_step_latency_source": "individual",
+      "agent_steps": [
+        {
+          "step": 1,
+          "name": "get_weather",
+          "explanation": "{ \"id\": \"6d015d95\", \"name\": \"Area Assignment and Patrol Intermediate 1 Environment\", \"weather\": \"fog\", \"temperature\": 3.103802644046646, \"humidity\": 47.8, \"pressure\": 1016.7, \"wind_speed\": 17.011364226258802, \"wind_direction\": \"south\", \"visibility\": 13691.6, \"...",
+          "latency_ms": 5155,
+          "latency_source": "individual",
+          "decision_latency_ms": 5145,
+          "tool_latency_ms": 10,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 2,
+          "name": "list_drones",
+          "explanation": "[ { \"id\": \"e8ebba85\", \"name\": \"Drone 1\", \"status\": \"idle\", \"position\": { \"x\": 629.81, \"y\": 303.55, \"z\": 0.0 }, \"battery_level\": 100.0, \"task_radius\": 20.0, \"perceived_radius\": 50.0 }, { \"id\": \"45c14e1d\", \"name\": \"Drone 2\", \"status\": \"idle\", \"position\": { \"x\":...",
+          "latency_ms": 10,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 10,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 3,
+          "name": "sense_nearby_entities",
+          "explanation": "{ \"sensed_drone_ids\": [ \"e8ebba85\", \"45c14e1d\", \"f4ea09ea\" ], \"per_drone\": { \"e8ebba85\": { \"drones\": [ { \"id\": \"f4ea09ea\", \"name\": \"Drone 5\", \"model\": \"Model-D\", \"status\": \"idle\", \"position\": { \"x\": 629.81, \"y\": 343.55, \"z\": 0.0 }, \"heading\": 296.565051177078,...",
+          "action_input": "{\"drone_ids\": [\"e8ebba85\", \"45c14e1d\", \"f4ea09ea\"], \"detail\": \"full\"}",
+          "latency_ms": 7365,
+          "latency_source": "individual",
+          "decision_latency_ms": 7349,
+          "tool_latency_ms": 16,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 4,
+          "name": "take_off",
+          "explanation": "{ \"command_id\": \"17f64695\", \"drone_id\": \"e8ebba85\", \"command\": \"take_off\", \"status\": \"success\", \"message\": \"Drone taking off to altitude 23.0m (battery: -0.5%/-0mAh, remaining: 99.5%/96mAh)\", \"timestamp\": 1789833377.393057 }",
+          "action_input": "{\"drone_id\": \"e8ebba85\", \"altitude\": 23.0}",
+          "latency_ms": 12305,
+          "latency_source": "individual",
+          "decision_latency_ms": 12287,
+          "tool_latency_ms": 18,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 5,
+          "name": "take_off",
+          "explanation": "{ \"command_id\": \"ebc240c0\", \"drone_id\": \"45c14e1d\", \"command\": \"take_off\", \"status\": \"success\", \"message\": \"Drone taking off to altitude 23.0m (battery: -0.5%/-0mAh, remaining: 99.5%/60mAh)\", \"timestamp\": 1789833377.3970728 }",
+          "action_input": "{\"drone_id\": \"45c14e1d\", \"altitude\": 23.0}",
+          "latency_ms": 18,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 18,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 6,
+          "name": "take_off",
+          "explanation": "{ \"command_id\": \"055f4868\", \"drone_id\": \"f4ea09ea\", \"command\": \"take_off\", \"status\": \"success\", \"message\": \"Drone taking off to altitude 23.0m (battery: -0.5%/-0mAh, remaining: 99.5%/81mAh)\", \"timestamp\": 1789833377.3981261 }",
+          "action_input": "{\"drone_id\": \"f4ea09ea\", \"altitude\": 23.0}",
+          "latency_ms": 18,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 18,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 7,
+          "name": "generate_coverage_path",
+          "explanation": "{ \"coverage_plan_id\": \"coverage-f8a40ab66ee7443baa2d0eae245c1ec6\", \"target\": { \"id\": \"90e25798\", \"name\": \"Polygon Target 2\", \"type\": \"polygon\" }, \"task_radius\": 20.0, \"point_spacing\": 20.0, \"drone_assignments\": [ { \"drone_id\": \"e8ebba85\", \"first_waypoint\": { \"...",
+          "action_input": "{\"target_id\": \"90e25798\", \"drone_ids\": [\"e8ebba85\", \"45c14e1d\", \"f4ea09ea\"]}",
+          "latency_ms": 5124,
+          "latency_source": "individual",
+          "decision_latency_ms": 5109,
+          "tool_latency_ms": 15,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 8,
+          "name": "move_along_path",
+          "explanation": "{ \"status\": \"success\", \"message\": \"Drone completed path with 2 waypoints (total distance: 80.00m, battery: -0.7%/-1mAh, remaining: 98.8%/95mAh) - Reached target(s): Polygon Target 2\", \"command_id\": \"1c92ce1f\", \"drone_id\": \"e8ebba85\", \"command\": \"move_along_pat...",
+          "action_input": "{\"drone_id\": \"e8ebba85\", \"coverage_plan_id\": \"coverage-f8a40ab66ee7443baa2d0eae245c1ec6\", \"allow_partial_move\": false}",
+          "latency_ms": 9951,
+          "latency_source": "individual",
+          "decision_latency_ms": 9914,
+          "tool_latency_ms": 37,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 9,
+          "name": "move_along_path",
+          "explanation": "{ \"status\": \"success\", \"message\": \"Drone completed path with 4 waypoints (total distance: 180.00m, battery: -1.7%/-1mAh, remaining: 97.8%/59mAh) - Reached target(s): Polygon Target 2\", \"command_id\": \"ded36a8c\", \"drone_id\": \"45c14e1d\", \"command\": \"move_along_pa...",
+          "action_input": "{\"drone_id\": \"45c14e1d\", \"coverage_plan_id\": \"coverage-f8a40ab66ee7443baa2d0eae245c1ec6\", \"allow_partial_move\": false}",
+          "latency_ms": 37,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 37,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 10,
+          "name": "move_along_path",
+          "explanation": "{ \"status\": \"success\", \"message\": \"Drone completed path with 4 waypoints (total distance: 180.00m, battery: -1.7%/-1mAh, remaining: 97.8%/80mAh) - Reached target(s): Polygon Target 2\", \"command_id\": \"6d0a9ee9\", \"drone_id\": \"f4ea09ea\", \"command\": \"move_along_pa...",
+          "action_input": "{\"drone_id\": \"f4ea09ea\", \"coverage_plan_id\": \"coverage-f8a40ab66ee7443baa2d0eae245c1ec6\", \"allow_partial_move\": false}",
+          "latency_ms": 38,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 38,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 11,
+          "name": "final_answer",
+          "explanation": "All three drones completed their coverage paths successfully with zero failures. Here's the mission summary: --- ## 📊 Coordinated Area Coverage — Polygon Target 2 | Drone | ID | Sector | Waypoints | Path | Battery | |-------|-----|--------|-----------|------|-...",
+          "latency_ms": 0,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 0,
+          "latency_scope": "final_response"
+        }
+      ],
+      "agent_job_id": "6ac823ab-b1fe-4043-a05d-d5c1ed9a5f3a",
+      "agent_token_usage": {
+        "prompt_tokens": 74519,
+        "completion_tokens": 3048,
+        "total_tokens": 77567,
+        "llm_calls": 6
+      }
+    },
+    {
+      "session_id": "2d261be8",
+      "session_name": "Area Assignment and Patrol Moderate 3",
+      "task_id": "a53e51e7",
+      "task_name": "Complete Area Coverage Search 1",
+      "status": "passed",
+      "timestamp": "2026-09-19T23:57:48.935906",
+      "error": null,
+      "statistics": {
+        "total_checks_apis": 1,
+        "passed_checks_apis": 1,
+        "failed_checks_apis": 0,
+        "pass_rate": 1.0
+      },
+      "details": [
+        {
+          "type": "group",
+          "logic": "AND",
+          "depth": 0,
+          "count": 1
+        },
+        {
+          "type": "leaf",
+          "endpoint": "/check/target_is_fully_searched",
+          "parameters": {
+            "target_id": "70c5c3fb",
+            "coverage_threshold": 0.95
+          },
+          "expect": true,
+          "actual": true,
+          "result": true,
+          "response": {
+            "result": true,
+            "value": 1.0,
+            "session_id": "2d261be8",
+            "target_id": "70c5c3fb",
+            "coverage_percentage": 100.0,
+            "coverage_threshold": 0.95
+          },
+          "depth": 1
+        }
+      ],
+      "agent_latency_ms": 45215,
+      "agent_step_count": 8,
+      "agent_avg_step_latency_ms": 5096.2,
+      "agent_step_latency_source": "individual",
+      "agent_steps": [
+        {
+          "step": 1,
+          "name": "list_drones",
+          "explanation": "[ { \"id\": \"7cae51db\", \"name\": \"Drone 1\", \"status\": \"idle\", \"position\": { \"x\": 950.0, \"y\": 100.0, \"z\": 0.0 }, \"battery_level\": 100.0, \"task_radius\": 20.0, \"perceived_radius\": 50.0 }, { \"id\": \"29440d36\", \"name\": \"Drone 2\", \"status\": \"idle\", \"position\": { \"x\": 83...",
+          "latency_ms": 5088,
+          "latency_source": "individual",
+          "decision_latency_ms": 5078,
+          "tool_latency_ms": 10,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 2,
+          "name": "get_weather",
+          "explanation": "{ \"id\": \"bf1d0fd3\", \"name\": \"Area Assignment and Patrol Moderate 3 Environment\", \"weather\": \"heavy_rain\", \"temperature\": 15.703088847985999, \"humidity\": 46.4, \"pressure\": 1018.5, \"wind_speed\": 26.213406556256434, \"wind_direction\": \"west\", \"visibility\": 13708.1...",
+          "latency_ms": 11,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 11,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 3,
+          "name": "sense_nearby_entities",
+          "explanation": "{ \"sensed_drone_ids\": [ \"7cae51db\", \"29440d36\", \"55e438dd\", \"b9ca108b\", \"648cf5d7\", \"8edcbca9\", \"f0c7917a\", \"4bb8c6af\", \"20218136\", \"9de6a285\" ], \"per_drone\": { \"7cae51db\": { \"drone_id\": null, \"counts\": { \"targets\": 0, \"obstacles\": 1, \"drones\": 0 }, \"targets\":...",
+          "action_input": "{\"detail\": \"summary\"}",
+          "latency_ms": 42,
+          "latency_source": "individual",
+          "decision_latency_ms": 0,
+          "tool_latency_ms": 42,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 4,
+          "name": "take_off",
+          "explanation": "{ \"command_id\": \"fbc89a05\", \"drone_id\": \"55e438dd\", \"command\": \"take_off\", \"status\": \"success\", \"message\": \"Drone taking off to altitude 24.0m (battery: -0.5%/-0mAh, remaining: 99.5%/98mAh)\", \"timestamp\": 1789833437.599388 }",
+          "action_input": "{\"drone_id\": \"55e438dd\", \"altitude\": 24.0}",
+          "latency_ms": 8862,
+          "latency_source": "individual",
+          "decision_latency_ms": 8853,
+          "tool_latency_ms": 9,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 5,
+          "name": "get_target_info",
+          "explanation": "{ \"id\": \"70c5c3fb\", \"name\": \"Circle Target 4\", \"type\": \"circle\", \"position\": { \"x\": 544.0, \"y\": 423.0, \"z\": 0.0 }, \"description\": \"\", \"radius\": 52, \"created_at\": 1775666322.562133, \"last_updated\": 1787386415.968736, \"velocity\": null, \"moving_path\": null, \"movi...",
+          "action_input": "{\"target_id\": \"70c5c3fb\"}",
+          "latency_ms": 3695,
+          "latency_source": "individual",
+          "decision_latency_ms": 3674,
+          "tool_latency_ms": 21,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 6,
+          "name": "generate_coverage_path",
+          "explanation": "{ \"coverage_plan_id\": \"coverage-6f5009827bae44ea80ac443721ba36c0\", \"target\": { \"id\": \"70c5c3fb\", \"name\": \"Circle Target 4\", \"type\": \"circle\" }, \"task_radius\": 20.0, \"point_spacing\": 20.0, \"drone_assignments\": [ { \"drone_id\": \"55e438dd\", \"first_waypoint\": { \"x\"...",
+          "action_input": "{\"target_id\": \"70c5c3fb\", \"drone_ids\": [\"55e438dd\"]}",
+          "latency_ms": 4311,
+          "latency_source": "individual",
+          "decision_latency_ms": 4286,
+          "tool_latency_ms": 25,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 7,
+          "name": "move_along_path_and_sense",
+          "explanation": "{ \"drone_id\": \"55e438dd\", \"move_result\": { \"status\": \"success\", \"message\": \"Drone completed path with 10 waypoints (total distance: 523.45m, battery: -6.3%/-6mAh, remaining: 93.2%/92mAh) - Reached target(s): Circle Target 4\", \"command_id\": \"bb9110f9\", \"drone_i...",
+          "action_input": "{\"drone_id\": \"55e438dd\", \"coverage_plan_id\": \"coverage-6f5009827bae44ea80ac443721ba36c0\", \"allow_partial_move\": false, \"detail\": \"summary\"}",
+          "latency_ms": 5515,
+          "latency_source": "individual",
+          "decision_latency_ms": 5474,
+          "tool_latency_ms": 41,
+          "latency_scope": "decision_plus_tool"
+        },
+        {
+          "step": 8,
+          "name": "final_answer",
+          "explanation": "Coverage mission complete. Here's the summary: ## Mission Report: Drone 3 — Circle Target 4 Area Search | Detail | Value | |---|---| | **Drone** | Drone 3 (`55e438dd`) | | **Target** | Circle Target 4 at (544, 423), radius 52m | | **Altitude** | 24m | | **Cove...",
+          "latency_ms": 13246,
+          "latency_source": "individual",
+          "decision_latency_ms": 13246,
+          "tool_latency_ms": 0,
+          "latency_scope": "final_response"
+        }
+      ],
+      "agent_job_id": "b5a5867b-83d7-4b09-ae7f-4bb25490aaec",
+      "agent_token_usage": {
+        "prompt_tokens": 74117,
+        "completion_tokens": 1505,
+        "total_tokens": 75622,
+        "llm_calls": 6
+      }
+    }
+  ]
+}
